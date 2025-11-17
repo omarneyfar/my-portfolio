@@ -1,0 +1,133 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Omar Naifar – Full-stack Engineer",
+    "subhead": "I design and ship scalable SaaS & web apps fast, clean architecture, measurable results.",
+    "primaryCta": "Hire Omar",
+    "secondaryCta": "See Projects",
+    "badges": {
+      "saas": "SaaS MVP in 1 Month",
+      "react": "React/Next Expert",
+      "ai": "AI Integrations"
+    }
+  },
+  "sellingPoints": {
+    "title": "Why Work With Me",
+    "speed": {
+      "title": "Rapid Delivery",
+      "description": "Launch MVPs in weeks, not months. I prioritize velocity without compromising quality."
+    },
+    "architecture": {
+      "title": "Clean Architecture",
+      "description": "Scalable, maintainable code that grows with your business. Future-proof solutions."
+    },
+    "results": {
+      "title": "Measurable Results",
+      "description": "Data-driven decisions. Track KPIs and optimize for growth and user engagement."
+    }
+  },
+  "deliveryBand": {
+    "text": "Available for new projects starting"
+  },
+  "featuredProjects": {
+    "title": "Featured Projects",
+    "viewAll": "View All Projects"
+  },
+  "contactCta": {
+    "title": "Let's Build Something Great",
+    "description": "Have a project in mind? Let's discuss how I can help bring your ideas to life.",
+    "button": "Get In Touch"
+  },
+  "about": {
+    "title": "About Omar",
+    "summary": "I'm a full-stack engineer based in Sfax, Tunisia, specializing in building high-performance SaaS applications and web platforms. With expertise across the entire stack—from Flutter mobile apps to React frontends and Node.js backends—I deliver end-to-end solutions that scale.",
+    "timeline": {
+      "title": "Career Timeline",
+      "items": [
+        {
+          "period": "2024 – Present",
+          "title": "Freelance Full-Stack Developer",
+          "description": "Building custom web and mobile applications for international clients."
+        },
+        {
+          "period": "2024 – 2025",
+          "title": "Full-Stack Developer at Tekab",
+          "description": "Developed enterprise CRM solutions using Vue.js, Nest.js, and Prisma."
+        },
+        {
+          "period": "2023 – 2024",
+          "title": "Full-Stack Developer",
+          "description": "Created multiple SaaS products and marketplace platforms."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Location",
+      "locationValue": "Sfax, Tunisia"
+    },
+    "skills": {
+      "title": "Technical Skills"
+    }
+  },
+  "projects": {
+    "title": "All Projects",
+    "filterAll": "All",
+    "filterFreelance": "Freelance",
+    "filterCompany": "Company",
+    "filterMobile": "Mobile",
+    "filterPersonal": "Personal",
+    "viewProject": "View Project"
+  },
+  "projectDetail": {
+    "role": "Role",
+    "period": "Period",
+    "responsibilities": "Key Responsibilities",
+    "technologies": "Technologies",
+    "backToProjects": "← Back to Projects",
+    "demo": "View Demo",
+    "github": "View Source"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Interested in working together? Fill out the form below and I'll get back to you within 24 hours.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company (optional)",
+      "budget": "Budget",
+      "budgetOptions": {
+        "small": "< $2,000",
+        "medium": "$2,000 - $10,000",
+        "large": "$10,000+"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "startDate": "Preferred Start Date",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Failed to send message. Please try again or email me directly."
+    }
+  },
+  "footer": {
+    "tagline": "Building the future, one line of code at a time.",
+    "rights": "© 2025 Omar Naifar. All rights reserved.",
+    "social": "Connect"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "notFound": "Page not found"
+  }
+}

@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Design System */
+  --color-midnight: #081320;
+  --color-teal: #00c2a8;
+  --color-amber: #ffb86b;
+  --color-slate: #f6f8fa;
+  --color-charcoal: #0f1724;
+  
+  /* Semantic Colors */
+  --color-primary: var(--color-teal);
+  --color-secondary: var(--color-amber);
+  --color-background: #ffffff;
+  --color-surface: var(--color-slate);
+  --color-text: var(--color-midnight);
+  --color-text-muted: #6b7280;
+  
+  /* Dark Mode */
+  --color-dark-background: var(--color-midnight);
+  --color-dark-surface: var(--color-charcoal);
+  --color-dark-text: var(--color-slate);
+}
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: var(--color-dark-background);
+  color: var(--color-dark-text);
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Dark mode transitions */
+.dark-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
