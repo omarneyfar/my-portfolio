@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Menu, X, Moon, Sun, Globe } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, Moon, Sun, Globe, Download, Github, Linkedin, Mail } from 'lucide-react'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -104,24 +104,25 @@ export default function Header() {
       </motion.header>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div
-          className="fixed inset-0 z-40 md:hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
+      <AnimatePresence>
+        {isMobileMenuOpen && (
           <motion.div
-            className="absolute right-0 top-0 h-full w-80 bg-[#081320] shadow-xl"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25 }}
+            className="fixed inset-0 z-40 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
+            <div 
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <motion.div
+              className="absolute right-0 top-0 h-full w-80 bg-[#081320] shadow-xl"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25 }}
+            >
             <div className="p-6">
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
@@ -173,9 +174,10 @@ export default function Header() {
                 </button>
               </div>
             </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   )
 }
