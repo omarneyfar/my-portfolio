@@ -78,7 +78,7 @@ export default function Contact() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#081320]">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -88,10 +88,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="text-center space-y-6"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary">
               Get in <span className="text-gradient">Touch</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto">
               Have a project in mind? Let&apos;s discuss how I can help bring your ideas to life. 
               I&apos;m always interested in hearing about new opportunities and exciting challenges.
             </p>
@@ -100,7 +100,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-20 bg-[#0F1724]">
+      <section className="py-20 bg-bg-secondary">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -116,14 +116,14 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#0B1621] rounded-2xl p-6 border border-white/4 hover:border-white/8 transition-all duration-300"
+                className="bg-bg-surface rounded-2xl p-6 border border-border-muted hover:border-border-secondary transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-[#00C2A8]/20 rounded-xl flex items-center justify-center mb-4">
-                  <info.icon className="w-6 h-6 text-[#00C2A8]" />
+                <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                  <info.icon className="w-6 h-6 text-accent" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{info.title}</h3>
-                <p className="text-white mb-1">{info.value}</p>
-                <p className="text-gray-400 text-sm">{info.description}</p>
+                <h3 className="text-lg font-semibold text-text-primary mb-2">{info.title}</h3>
+                <p className="text-text-primary mb-1">{info.value}</p>
+                <p className="text-text-muted text-sm">{info.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -141,48 +141,48 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
-                <h2 className="text-2xl font-semibold text-white mb-6">Send Message</h2>
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
+                <h2 className="text-2xl font-semibold text-text-primary mb-6">Send Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-gray-300 mb-2">Name *</label>
+                      <label className="block text-text-secondary mb-2">Name *</label>
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-white/4 border border-white/4 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#00C2A8] transition-colors"
+                        className="w-full px-4 py-3 bg-bg-surface/60 border border-border-muted rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent transition-colors"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-300 mb-2">Email *</label>
+                      <label className="block text-text-secondary mb-2">Email *</label>
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-white/4 border border-white/4 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#00C2A8] transition-colors"
+                        className="w-full px-4 py-3 bg-bg-surface/60 border border-border-muted rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent transition-colors"
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 mb-2">Project Type</label>
+                    <label className="block text-text-secondary mb-2">Project Type</label>
                     <select
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/4 border border-white/4 rounded-xl text-white focus:outline-none focus:border-[#00C2A8] transition-colors"
+                      className="w-full px-4 py-3 bg-bg-surface/60 border border-border-muted rounded-xl text-text-primary focus:outline-none focus:border-accent transition-colors"
                     >
                       <option value="">Select a project type</option>
                       {projectTypes.map(type => (
-                        <option key={type} value={type} className="bg-[#0B1621]">
+                        <option key={type} value={type} className="bg-bg-surface">
                           {type}
                         </option>
                       ))}
@@ -190,33 +190,33 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 mb-2">Subject *</label>
+                    <label className="block text-text-secondary mb-2">Subject *</label>
                     <input
                       type="text"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white/4 border border-white/4 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#00C2A8] transition-colors"
+                      className="w-full px-4 py-3 bg-bg-surface/60 border border-border-muted rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent transition-colors"
                       placeholder="Project discussion"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 mb-2">Message *</label>
+                    <label className="block text-text-secondary mb-2">Message *</label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-white/4 border border-white/4 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#00C2A8] transition-colors resize-none"
+                      className="w-full px-4 py-3 bg-bg-surface/60 border border-border-muted rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent transition-colors resize-none"
                       placeholder="Tell me about your project..."
                     />
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-text-muted">
                       <span className="flex items-center gap-2">
                         <Clock className="w-4 h-4" />
                         I&apos;ll respond within 24 hours
@@ -226,13 +226,13 @@ export default function Contact() {
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#00C2A8] text-white rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-text-inverse rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                       whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                       whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          <div className="w-4 h-4 border-2 border-text-inverse border-t-transparent rounded-full animate-spin" />
                           Sending...
                         </>
                       ) : (
@@ -279,61 +279,61 @@ export default function Contact() {
               className="space-y-8"
             >
               {/* Response Time */}
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
                 <div className="flex items-center gap-3 mb-6">
-                  <MessageSquare className="w-6 h-6 text-[#00C2A8]" />
-                  <h3 className="text-xl font-semibold text-white">What to Expect</h3>
+                  <MessageSquare className="w-6 h-6 text-accent" />
+                  <h3 className="text-xl font-semibold text-text-primary">What to Expect</h3>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#00C2A8] rounded-full mt-2" />
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2" />
                     <div>
-                      <h4 className="text-white font-medium mb-1">Quick Response</h4>
-                      <p className="text-gray-300 text-sm">I typically respond within 24 hours during business days</p>
+                      <h4 className="text-text-primary font-medium mb-1">Quick Response</h4>
+                      <p className="text-text-secondary text-sm">I typically respond within 24 hours during business days</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#00C2A8] rounded-full mt-2" />
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2" />
                     <div>
-                      <h4 className="text-white font-medium mb-1">Project Consultation</h4>
-                      <p className="text-gray-300 text-sm">Free 30-minute consultation to discuss your project requirements</p>
+                      <h4 className="text-text-primary font-medium mb-1">Project Consultation</h4>
+                      <p className="text-text-secondary text-sm">Free 30-minute consultation to discuss your project requirements</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#00C2A8] rounded-full mt-2" />
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2" />
                     <div>
-                      <h4 className="text-white font-medium mb-1">Detailed Proposal</h4>
-                      <p className="text-gray-300 text-sm">Receive a comprehensive proposal with timeline and cost estimate</p>
+                      <h4 className="text-text-primary font-medium mb-1">Detailed Proposal</h4>
+                      <p className="text-text-secondary text-sm">Receive a comprehensive proposal with timeline and cost estimate</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Working Hours */}
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
                 <div className="flex items-center gap-3 mb-6">
-                  <Clock className="w-6 h-6 text-[#FFB86B]" />
-                  <h3 className="text-xl font-semibold text-white">Working Hours</h3>
+                  <Clock className="w-6 h-6 text-freelance" />
+                  <h3 className="text-xl font-semibold text-text-primary">Working Hours</h3>
                 </div>
                 
                 <div className="space-y-3">
-                  <div className="flex justify-between text-gray-300">
+                  <div className="flex justify-between text-text-secondary">
                     <span>Monday - Friday</span>
                     <span>9:00 AM - 6:00 PM</span>
                   </div>
-                  <div className="flex justify-between text-gray-300">
+                  <div className="flex justify-between text-text-secondary">
                     <span>Saturday</span>
                     <span>10:00 AM - 2:00 PM</span>
                   </div>
-                  <div className="flex justify-between text-gray-300">
+                  <div className="flex justify-between text-text-secondary">
                     <span>Sunday</span>
                     <span>Closed</span>
                   </div>
-                  <div className="pt-3 border-t border-white/4">
-                    <p className="text-gray-400 text-sm">
+                  <div className="pt-3 border-t border-border-muted">
+                    <p className="text-text-muted text-sm">
                       All times are in GMT+1 (Tunis Time)
                     </p>
                   </div>
@@ -341,20 +341,20 @@ export default function Contact() {
               </div>
 
               {/* Social Links */}
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
-                <h3 className="text-xl font-semibold text-white mb-6">Connect on Social</h3>
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
+                <h3 className="text-xl font-semibold text-text-primary mb-6">Connect on Social</h3>
                 
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { name: 'LinkedIn', url: '#', color: 'bg-[#0077B5]/20 text-[#0077B5]' },
-                    { name: 'GitHub', url: '#', color: 'bg-white/20 text-white' },
-                    { name: 'Twitter', url: '#', color: 'bg-[#1DA1F2]/20 text-[#1DA1F2]' },
-                    { name: 'Instagram', url: '#', color: 'bg-[#E4405F]/20 text-[#E4405F]' }
+                    { name: 'LinkedIn', url: '#', color: 'bg-tekab/20 text-tekab' },
+                    { name: 'GitHub', url: '#', color: 'bg-text-muted/20 text-text-muted' },
+                    { name: 'Twitter', url: '#', color: 'bg-accent/20 text-accent' },
+                    { name: 'Instagram', url: '#', color: 'bg-freelance/20 text-freelance' }
                   ].map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
-                      className={`p-4 rounded-xl border border-white/4 hover:border-white/8 transition-all duration-300 text-center ${social.color}`}
+                      className={`p-4 rounded-xl border border-border-muted hover:border-border-secondary transition-all duration-300 text-center ${social.color}`}
                     >
                       {social.name}
                     </a>

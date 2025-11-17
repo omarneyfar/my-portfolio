@@ -106,7 +106,7 @@ export default function Projects() {
   const allProjects = projects
 
   return (
-    <section id="projects" className="py-20 bg-[#0F1724]">
+    <section id="projects" className="py-20 bg-bg-secondary">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -116,14 +116,14 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
             Featured Projects
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             A selection of recent work showcasing full-stack development, 
             modern technologies, and innovative solutions.
           </p>
-          <div className="w-12 h-1 bg-[#00C2A8] mx-auto mt-6 rounded" />
+          <div className="w-12 h-1 bg-accent mx-auto mt-6 rounded" />
         </motion.div>
 
         {/* Featured Projects Grid */}
@@ -148,8 +148,8 @@ export default function Projects() {
           className="space-y-8"
         >
           <div className="text-center">
-            <h3 className="text-2xl font-semibold text-white mb-4">All Projects</h3>
-            <p className="text-gray-400">
+            <h3 className="text-2xl font-semibold text-text-primary mb-4">All Projects</h3>
+            <p className="text-text-muted">
               Explore the complete collection of work across different categories
             </p>
           </div>
@@ -169,17 +169,17 @@ export default function Projects() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-20 text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 rounded-2xl bg-white/6 border border-white/4">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 rounded-2xl bg-bg-surface/60 border border-border-muted">
             <div className="text-left">
-              <h3 className="text-xl font-semibold text-white mb-2">
+              <h3 className="text-xl font-semibold text-text-primary mb-2">
                 Have a project in mind?
               </h3>
-              <p className="text-gray-300">
+              <p className="text-text-secondary">
                 Let&apos;s discuss how I can help bring your ideas to life
               </p>
             </div>
             <motion.button
-              className="px-6 py-3 bg-[#00C2A8] text-white rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md flex items-center gap-2"
+              className="px-6 py-3 bg-accent text-text-inverse rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md flex items-center gap-2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

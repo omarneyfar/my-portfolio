@@ -95,16 +95,16 @@ const relatedProjects = [
 
 export default function ProjectDetail() {
   const categoryColors = {
-    freelance: 'bg-[#FFB86B]/10 text-[#FFB86B] border-[#FFB86B]/20',
-    tekab: 'bg-[#00C2A8]/10 text-[#00C2A8] border-[#00C2A8]/20',
-    sofflex: 'bg-[#8B5CF6]/10 text-[#8B5CF6] border-[#8B5CF6]/20',
+    freelance: 'bg-freelance/10 text-freelance border-freelance/20',
+    tekab: 'bg-tekab/10 text-tekab border-tekab/20',
+    sofflex: 'bg-sofflex/10 text-sofflex border-sofflex/20',
   }
 
   return (
-    <div className="min-h-screen bg-[#081320]">
+    <div className="min-h-screen bg-background">
       {/* Hero Section with Full-Bleed Screenshot */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a2332] to-[#0f1724]">
+        <div className="absolute inset-0 bg-gradient-to-br from-bg-secondary to-bg-surface">
           <img
             src={projectData.imageUrl}
             alt={projectData.title}
@@ -122,17 +122,17 @@ export default function ProjectDetail() {
             >
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back to Projects
               </Link>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary">
                 {projectData.title}
               </h1>
               
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-text-secondary max-w-3xl mx-auto">
                 {projectData.description}
               </p>
               
@@ -145,7 +145,7 @@ export default function ProjectDetail() {
                   {projectData.year}
                 </span>
                 {projectData.client && (
-                  <span className="inline-flex items-center gap-2 text-gray-400">
+                  <span className="inline-flex items-center gap-2 text-text-muted">
                     <Users className="w-4 h-4" />
                     {projectData.client}
                   </span>
@@ -168,26 +168,26 @@ export default function ProjectDetail() {
               className="lg:col-span-1 space-y-8"
             >
               {/* Project Overview */}
-              <div className="bg-[#0B1621] rounded-2xl p-6 border border-white/4">
-                <h2 className="text-xl font-semibold text-white mb-4">Project Overview</h2>
-                <p className="text-gray-300 leading-relaxed">
+              <div className="bg-bg-surface rounded-2xl p-6 border border-border-muted">
+                <h2 className="text-xl font-semibold text-text-primary mb-4">Project Overview</h2>
+                <p className="text-text-secondary leading-relaxed">
                   {projectData.longDescription}
                 </p>
               </div>
 
               {/* Role & Links */}
-              <div className="bg-[#0B1621] rounded-2xl p-6 border border-white/4">
-                <h2 className="text-xl font-semibold text-white mb-4">Role</h2>
-                <p className="text-gray-300 mb-6">{projectData.role}</p>
+              <div className="bg-bg-surface rounded-2xl p-6 border border-border-muted">
+                <h2 className="text-xl font-semibold text-text-primary mb-4">Role</h2>
+                <p className="text-text-secondary mb-6">{projectData.role}</p>
                 
-                <h3 className="text-lg font-semibold text-white mb-4">Links</h3>
+                <h3 className="text-lg font-semibold text-text-primary mb-4">Links</h3>
                 <div className="space-y-3">
                   {projectData.liveUrl && (
                     <a
                       href={projectData.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-[#00C2A8] hover:text-[#00C2A8]/80 transition-colors"
+                      className="flex items-center gap-3 text-accent hover:text-accent/80 transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Demo
@@ -198,7 +198,7 @@ export default function ProjectDetail() {
                       href={projectData.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                      className="flex items-center gap-3 text-text-muted hover:text-text-primary transition-colors"
                     >
                       <Github className="w-4 h-4" />
                       View Code
@@ -208,13 +208,13 @@ export default function ProjectDetail() {
               </div>
 
               {/* Technologies */}
-              <div className="bg-[#0B1621] rounded-2xl p-6 border border-white/4">
-                <h2 className="text-xl font-semibold text-white mb-4">Technologies</h2>
+              <div className="bg-bg-surface rounded-2xl p-6 border border-border-muted">
+                <h2 className="text-xl font-semibold text-text-primary mb-4">Technologies</h2>
                 <div className="flex flex-wrap gap-2">
                   {projectData.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="inline-flex items-center px-3 py-1 rounded-lg bg-white/6 border border-white/4 text-sm text-gray-300"
+                      className="inline-flex items-center px-3 py-1 rounded-lg bg-bg-surface/60 border border-border-muted text-sm text-text-secondary"
                     >
                       {tech}
                     </span>
@@ -231,17 +231,17 @@ export default function ProjectDetail() {
               className="lg:col-span-2 space-y-8"
             >
               {/* Challenge */}
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-[#FFB86B]/20 rounded-xl flex items-center justify-center">
-                    <Target className="w-6 h-6 text-[#FFB86B]" />
+                  <div className="w-12 h-12 bg-freelance/20 rounded-xl flex items-center justify-center">
+                    <Target className="w-6 h-6 text-freelance" />
                   </div>
-                  <h2 className="text-2xl font-semibold text-white">Challenge</h2>
+                  <h2 className="text-2xl font-semibold text-text-primary">Challenge</h2>
                 </div>
                 <ul className="space-y-3">
                   {projectData.challenges?.map((challenge, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-300">
-                      <div className="w-2 h-2 bg-[#FFB86B] rounded-full mt-2 flex-shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-text-secondary">
+                      <div className="w-2 h-2 bg-freelance rounded-full mt-2 flex-shrink-0" />
                       {challenge}
                     </li>
                   ))}
@@ -249,17 +249,17 @@ export default function ProjectDetail() {
               </div>
 
               {/* Solution */}
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-[#00C2A8]/20 rounded-xl flex items-center justify-center">
-                    <Lightbulb className="w-6 h-6 text-[#00C2A8]" />
+                  <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center">
+                    <Lightbulb className="w-6 h-6 text-accent" />
                   </div>
-                  <h2 className="text-2xl font-semibold text-white">Solution</h2>
+                  <h2 className="text-2xl font-semibold text-text-primary">Solution</h2>
                 </div>
                 <ul className="space-y-3">
                   {projectData.solutions?.map((solution, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-300">
-                      <div className="w-2 h-2 bg-[#00C2A8] rounded-full mt-2 flex-shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-text-secondary">
+                      <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
                       {solution}
                     </li>
                   ))}
@@ -267,17 +267,17 @@ export default function ProjectDetail() {
               </div>
 
               {/* Results */}
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-[#FFB86B]/20 rounded-xl flex items-center justify-center">
-                    <Trophy className="w-6 h-6 text-[#FFB86B]" />
+                  <div className="w-12 h-12 bg-freelance/20 rounded-xl flex items-center justify-center">
+                    <Trophy className="w-6 h-6 text-freelance" />
                   </div>
-                  <h2 className="text-2xl font-semibold text-white">Results</h2>
+                  <h2 className="text-2xl font-semibold text-text-primary">Results</h2>
                 </div>
                 <ul className="space-y-3">
                   {projectData.results?.map((result, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-300">
-                      <div className="w-2 h-2 bg-[#FFB86B] rounded-full mt-2 flex-shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-text-secondary">
+                      <div className="w-2 h-2 bg-freelance rounded-full mt-2 flex-shrink-0" />
                       {result}
                     </li>
                   ))}
@@ -285,12 +285,12 @@ export default function ProjectDetail() {
               </div>
 
               {/* Responsibilities */}
-              <div className="bg-[#0B1621] rounded-2xl p-8 border border-white/4">
-                <h2 className="text-2xl font-semibold text-white mb-6">Responsibilities</h2>
+              <div className="bg-bg-surface rounded-2xl p-8 border border-border-muted">
+                <h2 className="text-2xl font-semibold text-text-primary mb-6">Responsibilities</h2>
                 <ul className="space-y-3">
                   {projectData.responsibilities?.map((responsibility, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-300">
-                      <div className="w-2 h-2 bg-[#00C2A8] rounded-full mt-2 flex-shrink-0" />
+                    <li key={index} className="flex items-start gap-3 text-text-secondary">
+                      <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
                       {responsibility}
                     </li>
                   ))}
@@ -302,7 +302,7 @@ export default function ProjectDetail() {
       </section>
 
       {/* Related Projects */}
-      <section className="py-20 bg-[#0F1724]">
+      <section className="py-20 bg-bg-secondary">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -311,8 +311,8 @@ export default function ProjectDetail() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Related Projects</h2>
-            <p className="text-gray-300 text-lg">
+            <h2 className="text-3xl font-bold text-text-primary mb-4">Related Projects</h2>
+            <p className="text-text-secondary text-lg">
               Explore similar projects and technologies
             </p>
           </motion.div>
@@ -325,17 +325,17 @@ export default function ProjectDetail() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-[#0B1621] rounded-2xl p-6 border border-white/4 hover:border-white/8 transition-all duration-300"
+                className="group bg-bg-surface rounded-2xl p-6 border border-border-muted hover:border-border-secondary transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#00C2A8] transition-colors">
+                <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <p className="text-text-secondary mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.slice(0, 3).map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="inline-flex items-center px-2 py-1 rounded-lg bg-white/6 border border-white/4 text-xs text-gray-400"
+                      className="inline-flex items-center px-2 py-1 rounded-lg bg-bg-surface/60 border border-border-muted text-xs text-text-muted"
                     >
                       {tech}
                     </span>
@@ -343,7 +343,7 @@ export default function ProjectDetail() {
                 </div>
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="inline-flex items-center gap-2 text-[#00C2A8] hover:text-[#00C2A8]/80 transition-colors text-sm font-medium"
+                  className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors text-sm font-medium"
                 >
                   View Project
                   <ArrowLeft className="w-3 h-3 rotate-180" />

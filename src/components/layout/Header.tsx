@@ -26,8 +26,8 @@ export default function Header() {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'py-3 shadow-lg backdrop-blur-md bg-[rgba(8,19,32,0.6)]' 
-            : 'py-4 backdrop-blur-md bg-[rgba(8,19,32,0.6)]'
+            ? 'py-3 shadow-lg backdrop-blur-md glass border-border-primary' 
+            : 'py-4 backdrop-blur-md glass border-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -38,9 +38,9 @@ export default function Header() {
             {/* Logo */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-[#00C2A8] to-[#FFB86B] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">ON</span>
+              <span className="text-text-inverse font-bold text-lg">ON</span>
               </div>
-              <span className="text-white font-semibold font-mono text-sm">Omar Naifar</span>
+              <span className="text-text-primary font-semibold font-mono text-sm">Omar Naifar</span>
             </div>
 
             {/* Desktop Navigation */}
@@ -49,7 +49,7 @@ export default function Header() {
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
-                  className="text-white/80 hover:text-white transition-colors relative group"
+                  className="text-text-secondary hover:text-text-primary transition-colors relative group"
                 >
                   {link}
                   <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-[#00C2A8] transition-all duration-300 group-hover:w-full" />
@@ -60,15 +60,15 @@ export default function Header() {
             {/* Right side controls */}
             <div className="flex items-center gap-4">
               {/* Language Switcher */}
-              <div className="hidden md:flex items-center gap-1 bg-white/6 rounded-lg p-1">
+              <div className="hidden md:flex items-center gap-1 bg-bg-surface/60 rounded-lg p-1 border border-border-muted">
                 {languages.map((lang) => (
                   <button
                     key={lang}
                     onClick={() => setCurrentLang(lang)}
                     className={`px-3 py-1 rounded text-sm transition-all ${
                       currentLang === lang
-                        ? 'bg-[#00C2A8] text-white'
-                        : 'text-white/60 hover:text-white'
+                        ? 'bg-accent text-text-inverse'
+                        : 'text-text-muted hover:text-text-primary'
                     }`}
                   >
                     {lang}
@@ -80,14 +80,14 @@ export default function Header() {
               <ThemeToggle />
 
               {/* CTA Button */}
-              <button className="hidden md:block px-6 py-3 bg-[#00C2A8] text-white rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md">
+              <button className="hidden md:block px-6 py-3 bg-accent text-text-inverse rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md">
                 Hire Omar
               </button>
 
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden w-10 h-10 rounded-lg bg-white/6 flex items-center justify-center text-white/80 hover:text-white"
+                className="md:hidden w-10 h-10 rounded-lg bg-bg-surface/60 flex items-center justify-center text-text-secondary hover:text-text-primary border border-border-muted"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -111,7 +111,7 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              className="absolute right-0 top-0 h-full w-80 bg-[#081320] shadow-xl"
+              className="absolute right-0 top-0 h-full w-80 bg-bg-primary shadow-xl border-l border-border-primary"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -121,13 +121,13 @@ export default function Header() {
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-[#00C2A8] to-[#FFB86B] rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">ON</span>
+                    <span className="text-text-inverse font-bold text-lg">ON</span>
                   </div>
-                  <span className="text-white font-semibold font-mono text-sm">Omar Naifar</span>
+                  <span className="text-text-primary font-semibold font-mono text-sm">Omar Naifar</span>
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-10 h-10 rounded-lg bg-white/6 flex items-center justify-center text-white/80"
+                  className="w-10 h-10 rounded-lg bg-bg-surface/60 flex items-center justify-center text-text-secondary border border-border-muted"
                 >
                   <X size={20} />
                 </button>
@@ -138,7 +138,7 @@ export default function Header() {
                   <a
                     key={link}
                     href={`#${link.toLowerCase()}`}
-                    className="block text-white/80 hover:text-white transition-colors py-3 text-lg"
+                    className="block text-text-secondary hover:text-text-primary transition-colors py-3 text-lg"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link}
@@ -147,15 +147,15 @@ export default function Header() {
               </nav>
 
               <div className="mt-8 space-y-4">
-                <div className="flex items-center gap-1 bg-white/6 rounded-lg p-1">
+                <div className="flex items-center gap-1 bg-bg-surface/60 rounded-lg p-1 border border-border-muted">
                   {languages.map((lang) => (
                     <button
                       key={lang}
                       onClick={() => setCurrentLang(lang)}
                       className={`flex-1 px-3 py-2 rounded text-sm transition-all ${
                         currentLang === lang
-                          ? 'bg-[#00C2A8] text-white'
-                          : 'text-white/60 hover:text-white'
+                          ? 'bg-accent text-text-inverse'
+                          : 'text-text-muted hover:text-text-primary'
                       }`}
                     >
                       {lang}
@@ -163,7 +163,7 @@ export default function Header() {
                   ))}
                 </div>
 
-                <button className="w-full px-6 py-3 bg-[#00C2A8] text-white rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md">
+                <button className="w-full px-6 py-3 bg-accent text-text-inverse rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md">
                   Hire Omar
                 </button>
               </div>

@@ -28,11 +28,18 @@ export function ThemeProvider({
   storageKey = 'portfolio-theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (typeof window !== 'undefined' && (localStorage.getItem(storageKey) as Theme)) || defaultTheme
-  )
+  const [theme, setTheme] = useState<Theme>(defaultTheme)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+    const storedTheme = (typeof window !== 'undefined' && (localStorage.getItem(storageKey) as Theme)) || defaultTheme
+    setTheme(storedTheme)
+  }, [defaultTheme, storageKey])
+
+  useEffect(() => {
+    if (!mounted) return
+    
     const root = window.document.documentElement
 
     root.classList.remove('light', 'dark')
@@ -47,12 +54,14 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme)
-  }, [theme])
+  }, [theme, mounted])
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(storageKey, theme)
+      }
       setTheme(theme)
     },
   }
