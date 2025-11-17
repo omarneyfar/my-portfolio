@@ -314,10 +314,10 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Let's Connect
+              Let&apos;s Connect
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              I'm always interested in discussing new opportunities and exciting projects
+              I&apos;m always interested in discussing new opportunities and exciting projects
             </p>
             <div className="w-12 h-1 bg-[#00C2A8] mx-auto mt-6 rounded" />
           </motion.div>

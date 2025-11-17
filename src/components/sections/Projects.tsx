@@ -175,7 +175,7 @@ export default function Projects() {
                 Have a project in mind?
               </h3>
               <p className="text-gray-300">
-                Let's discuss how I can help bring your ideas to life
+                Let&apos;s discuss how I can help bring your ideas to life
               </p>
             </div>
             <motion.button

@@ -92,8 +92,8 @@ export default function Contact() {
               Get in <span className="text-gradient">Touch</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Have a project in mind? Let's discuss how I can help bring your ideas to life. 
-              I'm always interested in hearing about new opportunities and exciting challenges.
+              Have a project in mind? Let&apos;s discuss how I can help bring your ideas to life. 
+              I&apos;m always interested in hearing about new opportunities and exciting challenges.
             </p>
           </motion.div>
         </div>
@@ -219,7 +219,7 @@ export default function Contact() {
                     <div className="text-sm text-gray-400">
                       <span className="flex items-center gap-2">
                         <Clock className="w-4 h-4" />
-                        I'll respond within 24 hours
+                        I&apos;ll respond within 24 hours
                       </span>
                     </div>
                     
@@ -253,7 +253,7 @@ export default function Contact() {
                     className="mt-6 p-4 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-green-500">Message sent successfully! I'll get back to you soon.</span>
+                    <span className="text-green-500">Message sent successfully! I&apos;ll get back to you soon.</span>
                   </motion.div>
                 )}
 

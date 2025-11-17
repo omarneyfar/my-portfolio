@@ -75,7 +75,7 @@ export default function Footer() {
             
             <p className="text-gray-300 leading-relaxed">
               Passionate full-stack developer building innovative digital solutions 
-              with modern technologies. Let's create something amazing together.
+              with modern technologies. Let&apos;s create something amazing together.
             </p>
 
             {/* Social Links */}
