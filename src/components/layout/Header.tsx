@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Moon, Sun, Globe, Download, Github, Linkedin, Mail } from 'lucide-react'
+import { Menu, X, Globe, Download, Github, Linkedin, Mail } from 'lucide-react'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(true)
   const [currentLang, setCurrentLang] = useState('EN')
 
   useEffect(() => {
@@ -76,14 +76,8 @@ export default function Header() {
                 ))}
               </div>
 
-              {/* Dark Mode Toggle */}
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="w-10 h-10 rounded-lg bg-white/6 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all"
-                aria-label="Toggle dark mode"
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
+              {/* Theme Toggle */}
+              <ThemeToggle />
 
               {/* CTA Button */}
               <button className="hidden md:block px-6 py-3 bg-[#00C2A8] text-white rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md">
