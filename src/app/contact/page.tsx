@@ -1,17 +1,31 @@
 import ClientLayout from '@/components/providers/ClientLayout';
-import ContactSection from '@/components/sections/ContactSection';
-import { getSectionData, getGlobals } from '@/lib/content.server';
+import { getGlobals, getPageById, getSectionData } from '@/lib/content.loader';
+import { renderSections } from '@/lib/section-registry';
 
 export default async function ContactPage() {
-  const globals = getGlobals();
-  const contactSection = getSectionData('contact-form');
-  const contactData = contactSection.components[0].variables;
+  const globals = await getGlobals();
+  const page = await getPageById('contact');
+
+  if (!page) {
+    return <div>Page not found</div>;
+  }
+
+  const sections = await Promise.all(
+    page.sections.map(async (sectionRef) => {
+      const sectionData = await getSectionData(sectionRef.id);
+      return sectionData;
+    })
+  );
+
+  const validSections = sections.filter(Boolean);
 
   return (
     <ClientLayout globals={globals}>
-      <main className="min-h-screen pt-24 bg-background">
-        <ContactSection contactData={contactData} globals={globals} />
+      <main>
+        {renderSections(validSections, globals)}
       </main>
     </ClientLayout>
   );
 }
+
+export const revalidate = 300;

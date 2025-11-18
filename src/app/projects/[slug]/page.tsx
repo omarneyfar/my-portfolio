@@ -1,18 +1,18 @@
 import { notFound } from 'next/navigation';
 import ClientLayout from '@/components/providers/ClientLayout';
 import ProjectDetail from '@/components/sections/ProjectDetail';
-import { getProjectById, getGlobals, getAllProjects } from '@/lib/content.server';
+import { getProjectBySlug, getGlobals, getAllProjects } from '@/lib/content.loader';
 
 export async function generateStaticParams() {
-  const projects = getAllProjects();
+  const projects = await getAllProjects();
   return projects.map((project: any) => ({
     slug: project.id,
   }));
 }
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const globals = getGlobals();
-  const project = getProjectById(params.slug);
+  const globals = await getGlobals();
+  const project = await getProjectBySlug(params.slug);
 
   if (!project) {
     notFound();

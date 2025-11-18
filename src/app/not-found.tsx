@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { getGlobals } from '@/lib/content.server';
+import { getGlobals } from '@/lib/content.loader';
 import ClientLayout from '@/components/providers/ClientLayout';
 
 export default async function NotFound() {

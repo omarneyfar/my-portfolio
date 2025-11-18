@@ -1,39 +1,31 @@
-// src/app/page.tsx
 import ClientLayout from '@/components/providers/ClientLayout';
-import { getGlobals, getPageById, getSectionData } from '@/lib/content.server';
-import { renderSection, renderSections } from '@/lib/section-registry';
-
-// Define the sections we want to load for the home page
-const HOME_SECTIONS = ['hero', 'skills', 'projects', 'contact'];
+import { getGlobals, getPageById, getSectionData } from '@/lib/content.loader';
+import { renderSections } from '@/lib/section-registry';
 
 export default async function Home() {
-  // Fetch all data in parallel
   const globals = await getGlobals();
-  const page = await getPageById("home");
+  const page = await getPageById('home');
+
+  if (!page) {
+    return <div>Page not found</div>;
+  }
+
   const sections = await Promise.all(
-    page.sections.map(section => getSectionData(section))
+    page.sections.map(async (sectionRef) => {
+      const sectionData = await getSectionData(sectionRef.id);
+      return sectionData;
+    })
   );
 
-  // Transform section data for the section registry
-  const sectionComponents = sections
-    .filter(Boolean)
-    .map(section => ({
-      type: section?.type || '',
-      data: {
-        ...(section?.components?.[0]?.variables || {}),
-        globals // Pass globals to all sections if needed
-      }
-    }))
-    .filter(section => section.type); // Filter out any invalid sections
+  const validSections = sections.filter(Boolean);
 
   return (
     <ClientLayout globals={globals}>
       <main>
-        {renderSection(sectionComponents[0])}
+        {renderSections(validSections, globals)}
       </main>
     </ClientLayout>
   );
 }
 
-// Revalidate the page every 5 minutes
 export const revalidate = 300;

@@ -1,18 +1,31 @@
 import ClientLayout from '@/components/providers/ClientLayout';
-import AboutSection from '@/components/sections/AboutSection';
-import { getSectionData, getGlobals } from '@/lib/content.server';
+import { getGlobals, getPageById, getSectionData } from '@/lib/content.loader';
+import { renderSections } from '@/lib/section-registry';
 
 export default async function AboutPage() {
-  const [globals, ...sections] = await Promise.all([
-      getGlobals(),
-      ...ABOUT_SECTIONS.map(section => getSectionData(section))
-    ]);
+  const globals = await getGlobals();
+  const page = await getPageById('about');
+
+  if (!page) {
+    return <div>Page not found</div>;
+  }
+
+  const sections = await Promise.all(
+    page.sections.map(async (sectionRef) => {
+      const sectionData = await getSectionData(sectionRef.id);
+      return sectionData;
+    })
+  );
+
+  const validSections = sections.filter(Boolean);
 
   return (
     <ClientLayout globals={globals}>
-      <main className="min-h-screen pt-24 bg-background">
-        <AboutSection aboutData={aboutData} />
+      <main>
+        {renderSections(validSections, globals)}
       </main>
     </ClientLayout>
   );
 }
+
+export const revalidate = 300;

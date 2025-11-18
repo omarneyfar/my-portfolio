@@ -1,11 +1,49 @@
-import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { NextRequest, NextResponse } from 'next/server';
+import { sendEmail, emailTemplates } from '@/lib/email';
+import { sendTelegramLog } from '@/lib/telegram';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const RATE_LIMIT_MAP = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 60 * 1000;
+const MAX_REQUESTS = 3;
 
-export async function POST(request: Request) {
+function getRateLimitKey(req: NextRequest): string {
+  const forwarded = req.headers.get('x-forwarded-for');
+  const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
+  return ip;
+}
+
+function checkRateLimit(key: string): boolean {
+  const now = Date.now();
+  const userLimit = RATE_LIMIT_MAP.get(key);
+
+  if (!userLimit || now > userLimit.resetTime) {
+    RATE_LIMIT_MAP.set(key, {
+      count: 1,
+      resetTime: now + RATE_LIMIT_WINDOW,
+    });
+    return true;
+  }
+
+  if (userLimit.count >= MAX_REQUESTS) {
+    return false;
+  }
+
+  userLimit.count++;
+  return true;
+}
+
+export async function POST(req: NextRequest) {
   try {
-    const body = await request.json();
+    const rateLimitKey = getRateLimitKey(req);
+    
+    if (!checkRateLimit(rateLimitKey)) {
+      return NextResponse.json(
+        { error: 'Rate limit exceeded. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
+    const body = await req.json();
     const { name, email, subject, message } = body;
 
     if (!name || !email || !subject || !message) {
@@ -15,26 +53,51 @@ export async function POST(request: Request) {
       );
     }
 
-    const data = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: process.env.CONTACT_EMAIL || 'omar.neyfar@gmail.com',
-      replyTo: email,
-      subject: `Portfolio Contact: ${subject}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email address' },
+        { status: 400 }
+      );
+    }
+
+    const isCVRequest = 
+      message.toLowerCase().includes('cv') || 
+      message.toLowerCase().includes('resume') ||
+      message.toLowerCase().includes('curriculum') ||
+      subject.toLowerCase().includes('cv') ||
+      subject.toLowerCase().includes('resume');
+
+    const contactEmail = process.env.CONTACT_EMAIL || 'admin@example.com';
+
+    await sendEmail({
+      to: contactEmail,
+      subject: `Contact Form: ${subject}`,
+      html: isCVRequest 
+        ? emailTemplates.cvRequest({ name, email })
+        : emailTemplates.contactForm({ name, email, subject, message }),
     });
 
-    return NextResponse.json({ success: true, data });
+    await sendTelegramLog({
+      event: 'Contact Form Submission',
+      meta: {
+        name,
+        email,
+        subject,
+        isCVRequest,
+        timestamp: new Date().toISOString(),
+      },
+    });
+
+    return NextResponse.json({
+      success: true,
+      message: 'Message sent successfully',
+    });
   } catch (error) {
     console.error('Contact form error:', error);
+    
     return NextResponse.json(
-      { error: 'Failed to send message' },
+      { error: 'Failed to send message. Please try again later.' },
       { status: 500 }
     );
   }

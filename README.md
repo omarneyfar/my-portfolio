@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Portfolio - JSON-Driven Architecture
 
-## Getting Started
+A modern, fully type-safe portfolio website built with Next.js 15, TypeScript, and a dynamic content system powered by JSON.
 
-First, run the development server:
+## ✨ Features
 
+- **Dynamic Content System**: All content loaded from `data/content.json` - no hard-coded text
+- **Multi-language Support**: Instant language switching (FR/EN) without page reload  
+- **Type-Safe**: Complete TypeScript type safety with `content.types.ts`
+- **Section & Component Registry**: Dynamic rendering system for sections and components
+- **Server-Side Rendering**: Full SSR support for optimal SEO and performance
+- **Contact Form**: Validated contact form with email notifications and Telegram logging
+- **Project Filtering**: Advanced filtering and sorting for projects
+- **Framer Motion**: Smooth animations and loading states
+- **Accessibility**: ARIA labels and keyboard navigation support
+- **Responsive**: Mobile-first design with Tailwind CSS
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Set up environment variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local`:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Fill in your values:
+- `RESEND_API_KEY`: Your Resend API key ([get one here](https://resend.com/api-keys))
+- `EMAIL_FROM`: Sender email address
+- `CONTACT_EMAIL`: Where contact form submissions are sent
+- `TELEGRAM_BOT_TOKEN`: (Optional) For logging to Telegram
+- `TELEGRAM_CHAT_ID`: (Optional) Your Telegram chat ID
 
-## Learn More
+3. Run the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:5000](http://localhost:5000) to view your portfolio.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+├── data/content.json          # All site content (JSON)
+├── src/
+│   ├── app/                   # Next.js app router
+│   ├── components/
+│   │   ├── dynamic/          # Content components (HeroComponent, SkillsGrid, etc.)
+│   │   ├── sections/         # Section wrappers
+│   │   └── ui/               # UI components
+│   ├── lib/
+│   │   ├── content.types.ts  # Type definitions
+│   │   ├── content.loader.ts # Server-side content loader
+│   │   └── section-registry.tsx # Component registry
+│   └── hooks/useContent.ts   # Client-side SWR hook
+```
 
-## Deploy on Vercel
+## 🎨 Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Editing Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All content is in `data/content.json`. The structure is fully typed in `src/lib/content.types.ts`.
+
+**Add a project**:
+```json
+{
+  "id": "my-project",
+  "title": "Project Title",
+  "description": { "fr": "...", "en": "..." },
+  "technologies": ["React", "Node.js"],
+  "category": "personal",
+  "featured": true,
+  "githubUrl": "https://github.com/...",
+  "liveUrl": "https://...",
+  "imageUrl": "/images/projects/project.jpg",
+  "year": 2024
+}
+```
+
+### Available Scripts
+
+- `npm run dev` - Development server (port 5000)
+- `npm run build` - Production build
+- `npm start` - Start production server
+- `npm run lint` - Run linter
+
+## 📧 Contact Form
+
+Features:
+- Client & server-side validation
+- Rate limiting (3 requests/min)
+- Email via Resend
+- CV request detection
+- Telegram logging (optional)
+
+## 🌍 Deployment
+
+Ready for deployment on Vercel, Netlify, or any Node.js platform.
+
+Set environment variables in your deployment platform.
+
+## 📝 License
+
+MIT - Use this as a template for your portfolio!

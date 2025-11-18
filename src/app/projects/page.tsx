@@ -1,23 +1,31 @@
 import ClientLayout from '@/components/providers/ClientLayout';
-import ProjectsWithFilter from '@/components/sections/ProjectsWithFilter';
-import { getAllProjects, getGlobals, getSectionData } from '@/lib/content.server';
+import { getGlobals, getPageById, getSectionData } from '@/lib/content.loader';
+import { renderSections } from '@/lib/section-registry';
 
 export default async function ProjectsPage() {
-  const globals = getGlobals();
-  const projects = getAllProjects();
-  const allProjectsSection = getSectionData('all-projects');
-  const projectsData = allProjectsSection.components[0].variables;
+  const globals = await getGlobals();
+  const page = await getPageById('projects');
+
+  if (!page) {
+    return <div>Page not found</div>;
+  }
+
+  const sections = await Promise.all(
+    page.sections.map(async (sectionRef) => {
+      const sectionData = await getSectionData(sectionRef.id);
+      return sectionData;
+    })
+  );
+
+  const validSections = sections.filter(Boolean);
 
   return (
     <ClientLayout globals={globals}>
-      <main className="min-h-screen pt-24 bg-background">
-        <ProjectsWithFilter 
-          projects={projectsData.projects} 
-          filterOptions={projectsData.filterOptions}
-          sortOptions={projectsData.sortOptions}
-          title={projectsData.title}
-        />
+      <main>
+        {renderSections(validSections, globals)}
       </main>
     </ClientLayout>
   );
 }
+
+export const revalidate = 300;

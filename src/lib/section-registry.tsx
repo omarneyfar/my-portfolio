@@ -1,20 +1,18 @@
-// src/lib/section-registry.ts
+import React, { ComponentType, ReactNode } from 'react';
+import type { SectionType, ComponentType as JsonComponentType } from './content.types';
 
-import React, { ComponentType, ReactNode } from "react";
-import { Section, SectionType, ComponentType as JsonComponentType } from "@/types/content.types";
+import HeroSection from '@/components/sections/HeroSection';
+import SkillsSection from '@/components/sections/SkillsSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import AboutSection from '@/components/sections/AboutSection';
+import ContactSection from '@/components/sections/ContactSection';
 
-// Sections (wrappers)
-import HeroSection from "@/components/sections/HeroSection";
-import SkillsSection from "@/components/sections/SkillsSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
-import AboutSection from "@/components/sections/AboutSection";
-import ContactSection from "@/components/sections/ContactSection";
+import HeroComponent from '@/components/dynamic/HeroComponent';
+import SkillsGrid from '@/components/dynamic/SkillsGrid';
+import ProjectGrid from '@/components/dynamic/ProjectGrid';
+import AboutComponent from '@/components/dynamic/AboutComponent';
+import ContactForm from '@/components/dynamic/ContactForm';
 
-
-
-// -----------------------------------------------
-// REGISTRY: SECTION WRAPPERS
-// -----------------------------------------------
 export const sectionRegistry: Record<SectionType, ComponentType<any>> = {
   HeroSection,
   SkillsSection,
@@ -23,9 +21,6 @@ export const sectionRegistry: Record<SectionType, ComponentType<any>> = {
   ContactSection,
 };
 
-// -----------------------------------------------
-// REGISTRY: INNER COMPONENTS
-// -----------------------------------------------
 export const componentRegistry: Record<JsonComponentType, ComponentType<any>> = {
   HeroComponent,
   SkillsGrid,
@@ -34,9 +29,6 @@ export const componentRegistry: Record<JsonComponentType, ComponentType<any>> = 
   ContactForm,
 };
 
-// -----------------------------------------------
-// HELPERS
-// -----------------------------------------------
 export const getSectionComponent = (type: SectionType): ComponentType<any> | null => {
   return sectionRegistry[type] || null;
 };
@@ -45,12 +37,9 @@ export const getDynamicComponent = (type: JsonComponentType): ComponentType<any>
   return componentRegistry[type] || null;
 };
 
-// -----------------------------------------------
-// RENDER A SINGLE SECTION
-// -----------------------------------------------
-export const renderSection = (section: Section<any>): ReactNode => {
+export const renderSection = (section: any, globals?: any): ReactNode => {
   if (!section || !section.type) {
-    console.error("Invalid section object:", section);
+    console.error('Invalid section object:', section);
     return null;
   }
 
@@ -61,8 +50,8 @@ export const renderSection = (section: Section<any>): ReactNode => {
   }
 
   return (
-    <SectionWrapper key={section.type}>
-      {section.components.map((component, idx) => {
+    <SectionWrapper key={section.type} globals={globals}>
+      {section.components?.map((component: any, idx: number) => {
         const Component = getDynamicComponent(component.type);
 
         if (!Component) {
@@ -81,16 +70,13 @@ export const renderSection = (section: Section<any>): ReactNode => {
   );
 };
 
-// -----------------------------------------------
-// RENDER MULTIPLE SECTIONS (page.sections)
-// -----------------------------------------------
-export const renderSections = (sections: Section<any>[]): ReactNode[] => {
+export const renderSections = (sections: any[], globals?: any): ReactNode[] => {
   if (!Array.isArray(sections)) {
-    console.error("renderSections expected an array");
+    console.error('renderSections expected an array');
     return [];
   }
 
   return sections
-    .map((section) => renderSection(section))
+    .map((section) => renderSection(section, globals))
     .filter(Boolean) as ReactNode[];
 };
