@@ -41,3 +41,8 @@ export function getFeaturedProjects(limit: number = 3) {
   const allProjects = getAllProjects();
   return allProjects.filter((p: any) => p.featured).slice(0, limit);
 }
+
+export function getProjectById(id: string) {
+  const allProjects = getAllProjects();
+  return allProjects.find((p: any) => p.id === id);
+}
