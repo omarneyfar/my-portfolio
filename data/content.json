@@ -1,0 +1,388 @@
+{
+  "languages": ["fr", "en"],
+  "defaultLanguage": "fr",
+
+  "globals": {
+    "siteName": {
+      "fr": "Omar Neyfar",
+      "en": "Omar Neyfar"
+    },
+    "jobTitle": {
+      "fr": "Développeur Full Stack & UI/UX",
+      "en": "Full Stack & UI/UX Developer"
+    },
+    "location": {
+      "fr": "Tunis, Tunisie",
+      "en": "Tunis, Tunisia"
+    },
+    "email": "omar.neyfar@gmail.com",
+    "phone": "+216 00 000 000",
+    "about": {
+      "fr": "Développeur passionné avec une expertise en développement web full stack et une passion pour la création d'expériences utilisateur exceptionnelles.",
+      "en": "Passionate developer with expertise in full stack web development and a passion for creating exceptional user experiences."
+    },
+    "theme": {
+      "primaryColor": "#0ea5e9",
+      "secondaryColor": "#1e293b",
+      "background": "#020617",
+      "surface": "#0f172a",
+      "text": "#e2e8f0",
+      "accentColor": "#3b82f6"
+    },
+    "socials": {
+      "github": {
+        "url": "https://github.com/omarneyfar",
+        "label": "GitHub"
+      },
+      "linkedin": {
+        "url": "https://linkedin.com/in/omar-neyfar",
+        "label": "LinkedIn"
+      },
+      "twitter": {
+        "url": "https://twitter.com/omarneyfar",
+        "label": "Twitter"
+      },
+      "instagram": {
+        "url": "https://instagram.com/omarneyfar",
+        "label": "Instagram"
+      },
+      "dribbble": {
+        "url": "https://dribbble.com/omarneyfar",
+        "label": "Dribbble"
+      }
+    },
+    "resumeUrl": "/resume.pdf"
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": { "fr": "/", "en": "/" },
+      "title": { "fr": "Accueil", "en": "Home" },
+      "meta": {
+        "description": {
+          "fr": "Portfolio d'Omar Neyfar - Développeur Full Stack basé à Tunis",
+          "en": "Omar Neyfar's Portfolio - Full Stack Developer based in Tunis"
+        }
+      },
+      "sections": [
+        { "id": "hero", "type": "HeroSection" },
+        { "id": "skills", "type": "SkillsSection" },
+        { "id": "projects", "type": "ProjectsSection" }
+      ]
+    },
+    {
+      "id": "projects",
+      "slug": { "fr": "/projets", "en": "/projects" },
+      "title": { "fr": "Projets", "en": "Projects" },
+      "sections": [
+        { "id": "all-projects", "type": "ProjectsSection" }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": { "fr": "/a-propos", "en": "/about" },
+      "title": { "fr": "À propos", "en": "About" },
+      "sections": [
+        { "id": "about-content", "type": "AboutSection" }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": { "fr": "/contact", "en": "/contact" },
+      "title": { "fr": "Contact", "en": "Contact" },
+      "sections": [
+        { "id": "contact-form", "type": "ContactSection" }
+      ]
+    }
+  ],
+
+  "sections": {
+    "hero": {
+      "type": "HeroSection",
+      "components": [
+        {
+          "id": "heroMain",
+          "type": "HeroComponent",
+          "variables": {
+            "headline": { "fr": "Salut, je suis Omar", "en": "Hi, I'm Omar" },
+            "subtext": { "fr": "Développeur Full Stack & Créateur d'expériences digitales", "en": "Full Stack Developer & Digital Experience Creator" },
+            "description": {
+              "fr": "Je conçois et développe des applications web modernes, rapides et magnifiques avec React, Next.js et les meilleures pratiques 2025.",
+              "en": "I design and build modern, fast, and beautiful web applications using React, Next.js, and 2025 best practices."
+            },
+            "ctaPrimary": { "text": { "fr": "Voir mes projets", "en": "View projects" }, "link": "/projets" },
+            "ctaSecondary": { "text": { "fr": "Me contacter", "en": "Contact me" }, "link": "/contact" },
+            "image": "/images/profile.jpg"
+          }
+        }
+      ]
+    },
+
+    "skills": {
+      "type": "SkillsSection",
+      "components": [
+        {
+          "id": "skillsGrid",
+          "type": "SkillsGrid",
+          "variables": {
+            "title": { "fr": "Compétences Techniques", "en": "Technical Skills" },
+            "categories": [
+              {
+                "name": "Frontend",
+                "skills": [
+                  { "name": "React", "level": 90 },
+                  { "name": "Next.js", "level": 85 },
+                  { "name": "TypeScript", "level": 88 },
+                  { "name": "Tailwind CSS", "level": 92 },
+                  { "name": "Framer Motion", "level": 80 }
+                ]
+              },
+              {
+                "name": "Backend",
+                "skills": [
+                  { "name": "Node.js", "level": 85 },
+                  { "name": "Express", "level": 82 },
+                  { "name": "Prisma", "level": 78 },
+                  { "name": "PostgreSQL", "level": 75 },
+                  { "name": "REST APIs", "level": 88 }
+                ]
+              },
+              {
+                "name": "Mobile",
+                "skills": [
+                  { "name": "React Native", "level": 75 },
+                  { "name": "Flutter", "level": 70 },
+                  { "name": "iOS Development", "level": 65 }
+                ]
+              },
+              {
+                "name": "DevOps",
+                "skills": [
+                  { "name": "Docker", "level": 72 },
+                  { "name": "CI/CD", "level": 78 },
+                  { "name": "AWS", "level": 70 },
+                  { "name": "Vercel", "level": 85 }
+                ]
+              },
+              {
+                "name": "AI",
+                "skills": [
+                  { "name": "OpenAI APIs", "level": 80 },
+                  { "name": "LangChain", "level": 75 },
+                  { "name": "Python ML", "level": 70 }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    "projects": {
+      "type": "ProjectsSection",
+      "components": [
+        {
+          "id": "featuredProjects",
+          "type": "ProjectGrid",
+          "variables": {
+            "title": { "fr": "Projets Récents", "en": "Recent Projects" },
+            "viewAllText": { "fr": "Voir tous les projets", "en": "View all projects" },
+            "viewAllLink": "/projets",
+            "projects": [
+              {
+                "id": "ecommerce-platform",
+                "title": "E-Commerce Platform",
+                "description": {
+                  "fr": "Solution e-commerce complète avec gestion d'inventaire en temps réel et traitement des paiements.",
+                  "en": "A full-stack e-commerce solution with real-time inventory management and payment processing."
+                },
+                "longDescription": {
+                  "fr": "Développement d'une plateforme e-commerce complète avec React, Node.js et PostgreSQL. Fonctionnalités : authentification utilisateur, catalogue de produits, panier d'achat, gestion des commandes et intégration de paiement avec Stripe.",
+                  "en": "Built a comprehensive e-commerce platform with React, Node.js, and PostgreSQL. Features include user authentication, product catalog, shopping cart, order management, and payment integration with Stripe."
+                },
+                "technologies": ["React", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+                "category": "freelance",
+                "featured": true,
+                "githubUrl": "https://github.com/omar/ecommerce",
+                "liveUrl": "https://ecommerce-demo.com",
+                "imageUrl": "/images/projects/ecommerce.jpg",
+                "year": 2024,
+                "client": "Tech Retail Inc."
+              },
+              {
+                "id": "task-management-app",
+                "title": "Task Management App",
+                "description": {
+                  "fr": "Outil de gestion des tâches collaboratif avec mises à jour en temps réel.",
+                  "en": "Collaborative task management tool with real-time updates."
+                },
+                "longDescription": {
+                  "fr": "Application de gestion des tâches en temps réel avec fonctionnalité de glisser-déposer, mises à jour en temps réel via WebSockets et fonctionnalités complètes de collaboration d'équipe.",
+                  "en": "Developed a real-time task management application with drag-and-drop functionality, real-time updates using WebSockets, and comprehensive team collaboration features."
+                },
+                "technologies": ["Next.js", "TypeScript", "Prisma", "Socket.io", "Tailwind CSS"],
+                "category": "tekab",
+                "featured": true,
+                "githubUrl": "https://github.com/omar/task-app",
+                "liveUrl": "https://taskapp-demo.com",
+                "imageUrl": "/images/projects/taskapp.jpg",
+                "year": 2023
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    "about-content": {
+      "type": "AboutSection",
+      "components": [
+        {
+          "id": "aboutFull",
+          "type": "AboutComponent",
+          "variables": {
+            "title": { "fr": "À propos de moi", "en": "About Me" },
+            "content": {
+              "fr": [
+                "Je suis un développeur full stack passionné par la création d'applications web modernes et performantes. Avec plus de 5 ans d'expérience dans le développement web, j'ai travaillé sur divers projets allant des petites applications aux plateformes d'entreprise.",
+                "Ma passion pour la technologie et l'innovation me pousse à toujours chercher à apprendre et à me perfectionner dans les dernières technologies et méthodologies de développement.",
+                "En dehors du code, j'aime partager mes connaissances à travers des articles de blog et des conférences, et je suis toujours ouvert aux nouvelles opportunités de collaboration."
+              ],
+              "en": [
+                "I am a passionate full stack developer dedicated to creating modern and efficient web applications. With over 5 years of experience in web development, I have worked on various projects ranging from small applications to enterprise platforms.",
+                "My passion for technology and innovation drives me to continuously learn and improve my skills in the latest development technologies and methodologies.",
+                "Outside of coding, I enjoy sharing my knowledge through blog posts and conferences, and I'm always open to new collaboration opportunities."
+              ]
+            },
+            "image": "/images/profile-full.jpg"
+          }
+        }
+      ]
+    },
+
+    "contact-form": {
+      "type": "ContactSection",
+      "components": [
+        {
+          "id": "contactForm",
+          "type": "ContactForm",
+          "variables": {
+            "title": { "fr": "Contactez-moi", "en": "Get In Touch" },
+            "description": {
+              "fr": "Vous avez un projet en tête ou une question ? N'hésitez pas à me contacter, je vous répondrai dès que possible.",
+              "en": "Have a project in mind or a question? Feel free to reach out, and I'll get back to you as soon as possible."
+            },
+            "formFields": [
+              {
+                "name": "name",
+                "type": "text",
+                "label": { "fr": "Nom complet", "en": "Full Name" },
+                "required": true
+              },
+              {
+                "name": "email",
+                "type": "email",
+                "label": { "fr": "Email", "en": "Email" },
+                "required": true
+              },
+              {
+                "name": "subject",
+                "type": "text",
+                "label": { "fr": "Sujet", "en": "Subject" },
+                "required": true
+              },
+              {
+                "name": "message",
+                "type": "textarea",
+                "label": { "fr": "Message", "en": "Message" },
+                "required": true
+              }
+            ],
+            "submitButton": { "fr": "Envoyer le message", "en": "Send Message" },
+            "successMessage": {
+              "fr": "Merci pour votre message ! Je vous répondrai dès que possible.",
+              "en": "Thank you for your message! I'll get back to you as soon as possible."
+            },
+            "errorMessage": {
+              "fr": "Une erreur s'est produite. Veuillez réessayer plus tard.",
+              "en": "An error occurred. Please try again later."
+            }
+          }
+        }
+      ]
+    },
+    
+    "all-projects": {
+      "type": "ProjectsSection",
+      "components": [
+        {
+          "id": "allProjectsGrid",
+          "type": "ProjectGrid",
+          "variables": {
+            "title": { "fr": "Tous mes projets", "en": "All My Projects" },
+            "projects": [
+              {
+                "id": "ecommerce-platform",
+                "title": "E-Commerce Platform",
+                "description": {
+                  "fr": "Solution e-commerce complète avec gestion d'inventaire en temps réel et traitement des paiements.",
+                  "en": "A full-stack e-commerce solution with real-time inventory management and payment processing."
+                },
+                "technologies": ["React", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+                "category": "freelance",
+                "featured": true,
+                "githubUrl": "https://github.com/omar/ecommerce",
+                "liveUrl": "https://ecommerce-demo.com",
+                "imageUrl": "/images/projects/ecommerce.jpg",
+                "year": 2024
+              },
+              {
+                "id": "task-management-app",
+                "title": "Task Management App",
+                "description": {
+                  "fr": "Outil de gestion des tâches collaboratif avec mises à jour en temps réel.",
+                  "en": "Collaborative task management tool with real-time updates."
+                },
+                "technologies": ["Next.js", "TypeScript", "Prisma", "Socket.io", "Tailwind CSS"],
+                "category": "tekab",
+                "featured": true,
+                "githubUrl": "https://github.com/omar/task-app",
+                "liveUrl": "https://taskapp-demo.com",
+                "imageUrl": "/images/projects/taskapp.jpg",
+                "year": 2023
+              },
+              {
+                "id": "portfolio-website",
+                "title": "Portfolio Website",
+                "description": {
+                  "fr": "Site web de portfolio moderne et réactif construit avec Next.js et Tailwind CSS.",
+                  "en": "Modern and responsive portfolio website built with Next.js and Tailwind CSS."
+                },
+                "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+                "category": "personal",
+                "featured": false,
+                "githubUrl": "https://github.com/omar/portfolio",
+                "liveUrl": "https://omar.tn",
+                "imageUrl": "/images/projects/portfolio.jpg",
+                "year": 2023
+              }
+            ],
+            "filterOptions": [
+              { "id": "all", "label": { "fr": "Tous", "en": "All" } },
+              { "id": "freelance", "label": { "fr": "Freelance", "en": "Freelance" } },
+              { "id": "tekab", "label": { "fr": "Tekab", "en": "Tekab" } },
+              { "id": "personal", "label": { "fr": "Personnel", "en": "Personal" } }
+            ],
+            "sortOptions": [
+              { "id": "newest", "label": { "fr": "Plus récent", "en": "Newest" } },
+              { "id": "oldest", "label": { "fr": "Plus ancien", "en": "Oldest" } },
+              { "id": "name-asc", "label": { "fr": "Nom (A-Z)", "en": "Name (A-Z)" } },
+              { "id": "name-desc", "label": { "fr": "Nom (Z-A)", "en": "Name (Z-A)" } }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
