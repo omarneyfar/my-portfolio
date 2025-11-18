@@ -4,15 +4,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Zap, Cpu, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useContent } from '@/hooks/useContent';
 
-export default function Hero() {
+interface HeroProps {
+  globals: any;
+  heroData: any;
+}
+
+export default function Hero({ globals, heroData }: HeroProps) {
   const { t } = useLanguage();
-  const { content } = useContent();
-
-  if (!content) return null;
-
-  const heroData = content.sections.hero.components[0].variables;
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-bg-primary to-bg-secondary pt-20">
@@ -25,9 +24,9 @@ export default function Hero() {
             className="space-y-8"
           >
             <div className="flex items-center gap-2 text-accent font-mono text-sm">
-              <span>{t(content.globals.jobTitle)}</span>
+              <span>{t(globals.jobTitle)}</span>
               <span>•</span>
-              <span>{t(content.globals.location)}</span>
+              <span>{t(globals.location)}</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -137,7 +136,7 @@ export default function Hero() {
                     <div className="text-center space-y-4">
                       <div className="w-16 h-16 bg-gradient-to-br from-[#00C2A8] to-[#FFB86B] rounded-xl mx-auto flex items-center justify-center">
                         <span className="text-2xl font-bold text-white">
-                          {content.globals.siteName.en.split(' ').map((n: string) => n[0]).join('')}
+                          {globals.siteName.en.split(' ').map((n: string) => n[0]).join('')}
                         </span>
                       </div>
                       <p className="text-text-primary font-semibold">

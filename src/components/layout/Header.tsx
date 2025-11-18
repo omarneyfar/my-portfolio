@@ -7,13 +7,15 @@ import Link from 'next/link';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import LanguageToggle from '@/components/ui/LanguageToggle';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useContent } from '@/hooks/useContent';
 
-export default function Header() {
+interface HeaderProps {
+  globals: any;
+}
+
+export default function Header({ globals }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
-  const { content } = useContent();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,11 +49,11 @@ export default function Header() {
             <Link href="/" className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-[#00C2A8] to-[#FFB86B] rounded-xl flex items-center justify-center">
                 <span className="text-text-inverse font-bold text-lg">
-                  {content?.globals.siteName.en.split(' ').map((n: string) => n[0]).join('') || 'ON'}
+                  {globals?.siteName?.en?.split(' ').map((n: string) => n[0]).join('') || 'ON'}
                 </span>
               </div>
               <span className="text-text-primary font-semibold font-mono text-sm">
-                {content?.globals.siteName.en || 'Omar Neyfar'}
+                {globals?.siteName?.en || 'Omar Neyfar'}
               </span>
             </Link>
 
@@ -114,11 +116,11 @@ export default function Header() {
                   <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
                     <div className="w-10 h-10 bg-gradient-to-br from-[#00C2A8] to-[#FFB86B] rounded-xl flex items-center justify-center">
                       <span className="text-text-inverse font-bold text-lg">
-                        {content?.globals.siteName.en.split(' ').map((n: string) => n[0]).join('') || 'ON'}
+                        {globals?.siteName?.en?.split(' ').map((n: string) => n[0]).join('') || 'ON'}
                       </span>
                     </div>
                     <span className="text-text-primary font-semibold font-mono text-sm">
-                      {content?.globals.siteName.en || 'Omar Neyfar'}
+                      {globals?.siteName?.en || 'Omar Neyfar'}
                     </span>
                   </Link>
                   <button

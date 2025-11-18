@@ -1,20 +1,25 @@
-import { motion } from 'framer-motion'
-import Header from '@/components/layout/Header'
-import Hero from '@/components/sections/Hero'
-import Skills from '@/components/sections/Skills'
-import Projects from '@/components/sections/Projects'
-import Footer from '@/components/layout/Footer'
+import Hero from '@/components/sections/Hero';
+import Skills from '@/components/sections/Skills';
+import Projects from '@/components/sections/Projects';
+import ClientLayout from '@/components/providers/ClientLayout';
+import { getSectionData, getGlobals, getFeaturedProjects } from '@/lib/content.server';
 
-export default function Home() {
+export default async function Home() {
+  const globals = getGlobals();
+  const heroSection = getSectionData('hero');
+  const skillsSection = getSectionData('skills');
+  const projects = getFeaturedProjects(10);
+
+  const heroData = heroSection.components[0].variables;
+  const skillsData = skillsSection.components[0].variables;
+
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <ClientLayout globals={globals}>
       <main>
-        <Hero />
-        <Skills />
-        <Projects />
+        <Hero globals={globals} heroData={heroData} />
+        <Skills skillsData={skillsData} />
+        <Projects projects={projects} showFeaturedOnly={true} title={{ fr: 'Projets Récents', en: 'Recent Projects' }} />
       </main>
-      <Footer />
-    </div>
+    </ClientLayout>
   );
 }

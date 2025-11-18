@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Code, Server, Smartphone, Brain, Cloud, Cpu, Database, GitBranch, Palette } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useContent } from '@/hooks/useContent';
 
 const iconMap: { [key: string]: any } = {
   Code,
@@ -17,13 +16,12 @@ const iconMap: { [key: string]: any } = {
   Palette,
 };
 
-export default function Skills() {
+interface SkillsProps {
+  skillsData: any;
+}
+
+export default function Skills({ skillsData }: SkillsProps) {
   const { t } = useLanguage();
-  const { content } = useContent();
-
-  if (!content) return null;
-
-  const skillsData = content.sections.skills.components[0].variables;
 
   return (
     <section id="skills" className="py-20 bg-bg-primary">

@@ -6,18 +6,23 @@ import ProjectCard from './ProjectCard';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useContent } from '@/hooks/useContent';
 
-export default function Projects() {
+interface ProjectsProps {
+  projects: any[];
+  showFeaturedOnly?: boolean;
+  title?: any;
+}
+
+export default function Projects({ projects, showFeaturedOnly = false, title }: ProjectsProps) {
   const [showAll, setShowAll] = useState(false);
   const { t } = useLanguage();
-  const { content } = useContent();
 
-  if (!content) return null;
+  const featuredProjects = projects.filter((p: any) => p.featured).slice(0, 3);
+  const displayedProjects = showFeaturedOnly ? (showAll ? projects : featuredProjects) : projects;
 
-  const projectsData = content.sections.projects.components[0].variables;
-  const featuredProjects = projectsData.projects.filter((p: any) => p.featured).slice(0, 3);
-  const displayedProjects = showAll ? projectsData.projects : featuredProjects;
+  const defaultTitle = showFeaturedOnly 
+    ? { fr: 'Projets Récents', en: 'Recent Projects' }
+    : { fr: 'Tous mes projets', en: 'All My Projects' };
 
   return (
     <section id="projects" className="py-20 bg-bg-secondary">
@@ -30,7 +35,7 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            {t(projectsData.title)}
+            {t(title || defaultTitle)}
           </h2>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             {t({
@@ -47,7 +52,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {!showAll && projectsData.projects.length > 3 && (
+        {showFeaturedOnly && !showAll && projects.length > 3 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +69,7 @@ export default function Projects() {
           </motion.div>
         )}
 
-        {showAll && (
+        {showFeaturedOnly && showAll && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
