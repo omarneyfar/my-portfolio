@@ -2,129 +2,29 @@
 
 import { motion } from 'framer-motion'
 import ProjectCard from './ProjectCard'
-import { ArrowRight, Github, ExternalLink } from 'lucide-react'
+import { ProjectsData, Project } from '@/data/types'
+import { ArrowRight } from 'lucide-react'
 
-interface Project {
-  id: string
-  slug: string
-  title: string
-  description: string
-  longDescription: string
-  technologies: string[]
-  category: 'freelance' | 'tekab' | 'sofflex'
-  featured: boolean
-  githubUrl?: string
-  liveUrl?: string
-  imageUrl?: string
-  year: number
-  client?: string
+interface ProjectsProps {
+  data: ProjectsData
+  locale: 'en' | 'fr'
 }
 
-// Sample projects data - this would typically come from a data file or API
-const projects: Project[] = [
-  {
-    id: '1',
-    slug: 'e-commerce-platform',
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management and payment processing.',
-    longDescription: 'Built a comprehensive e-commerce platform with React, Node.js, and PostgreSQL. Features include user authentication, product catalog, shopping cart, order management, and payment integration with Stripe.',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis'],
-    category: 'freelance',
-    featured: true,
-    githubUrl: 'https://github.com/omar/ecommerce',
-    liveUrl: 'https://ecommerce-demo.com',
-    year: 2024,
-    client: 'Tech Retail Inc.'
-  },
-  {
-    id: '2',
-    slug: 'task-management-app',
-    title: 'Task Management App',
-    description: 'Collaborative task management tool with real-time updates and team collaboration features.',
-    longDescription: 'Developed a real-time task management application with drag-and-drop functionality, real-time updates using WebSockets, and comprehensive team collaboration features.',
-    technologies: ['Next.js', 'TypeScript', 'Prisma', 'Socket.io', 'Tailwind CSS'],
-    category: 'tekab',
-    featured: true,
-    githubUrl: 'https://github.com/omar/task-app',
-    liveUrl: 'https://taskapp-demo.com',
-    year: 2023
-  },
-  {
-    id: '3',
-    slug: 'mobile-banking-app',
-    title: 'Mobile Banking App',
-    description: 'Secure mobile banking application with biometric authentication and transaction management.',
-    longDescription: 'Created a secure mobile banking application with React Native, featuring biometric authentication, real-time transaction updates, and comprehensive financial management tools.',
-    technologies: ['React Native', 'Node.js', 'MongoDB', 'JWT', 'Biometric Auth'],
-    category: 'sofflex',
-    featured: false,
-    githubUrl: 'https://github.com/omar/banking-app',
-    year: 2023
-  },
-  {
-    id: '4',
-    slug: 'ai-content-generator',
-    title: 'AI Content Generator',
-    description: 'AI-powered content generation platform with multiple language models and templates.',
-    longDescription: 'Built an AI content generation platform that integrates with multiple language models, provides customizable templates, and includes content optimization features.',
-    technologies: ['Python', 'FastAPI', 'OpenAI', 'React', 'PostgreSQL'],
-    category: 'freelance',
-    featured: true,
-    githubUrl: 'https://github.com/omar/ai-content',
-    liveUrl: 'https://aicontent-demo.com',
-    year: 2024
-  },
-  {
-    id: '5',
-    slug: 'analytics-dashboard',
-    title: 'Analytics Dashboard',
-    description: 'Real-time analytics dashboard with data visualization and reporting features.',
-    longDescription: 'Developed a comprehensive analytics dashboard with real-time data visualization, custom reports, and advanced filtering capabilities.',
-    technologies: ['Vue.js', 'D3.js', 'Node.js', 'InfluxDB', 'WebSockets'],
-    category: 'tekab',
-    featured: false,
-    githubUrl: 'https://github.com/omar/analytics',
-    year: 2023
-  },
-  {
-    id: '6',
-    slug: 'social-media-app',
-    title: 'Social Media App',
-    description: 'Full-featured social media platform with real-time messaging and content sharing.',
-    longDescription: 'Built a complete social media platform with real-time messaging, content sharing, user profiles, and advanced social features.',
-    technologies: ['Next.js', 'GraphQL', 'PostgreSQL', 'Redis', 'WebRTC'],
-    category: 'freelance',
-    featured: false,
-    githubUrl: 'https://github.com/omar/social-app',
-    liveUrl: 'https://social-demo.com',
-    year: 2024
-  }
-]
-
-export default function Projects() {
-  const featuredProjects = projects.filter(p => p.featured)
-  const allProjects = projects
+export default function Projects({ data, locale = 'en' }: ProjectsProps) {
+  const featuredProjects = data.projects.filter(project => project.featured)
+  const otherProjects = data.projects.filter(project => !project.featured)
 
   return (
     <section id="projects" className="py-20 bg-bg-secondary">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Featured Projects
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {data.title[locale]}
           </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            A selection of recent work showcasing full-stack development, 
-            modern technologies, and innovative solutions.
+          <p className="text-text-secondary max-w-2xl mx-auto">
+            {data?.subtitle?.[locale] || 'A selection of my recent work. Each project comes with its own set of challenges and learning opportunities.'}
           </p>
-          <div className="w-12 h-1 bg-accent mx-auto mt-6 rounded" />
-        </motion.div>
+        </div>
 
         {/* Featured Projects Grid */}
         <motion.div
@@ -135,7 +35,12 @@ export default function Projects() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
           {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              index={index}
+              locale={locale}
+            />
           ))}
         </motion.div>
 
@@ -148,15 +53,24 @@ export default function Projects() {
           className="space-y-8"
         >
           <div className="text-center">
-            <h3 className="text-2xl font-semibold text-text-primary mb-4">All Projects</h3>
+            <h3 className="text-2xl font-semibold text-text-primary mb-4">
+              {locale === 'en' ? 'All Projects' : 'Tous les projets'}
+            </h3>
             <p className="text-text-muted">
-              Explore the complete collection of work across different categories
+              {locale === 'en' 
+                ? 'Explore the complete collection of work across different categories'
+                : 'Explorez la collection complète de travaux à travers différentes catégories'}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index + featuredProjects.length} />
+            {otherProjects.map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                index={index}
+                locale={locale}
+              />
             ))}
           </div>
         </motion.div>
@@ -172,10 +86,12 @@ export default function Projects() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 rounded-2xl bg-bg-surface/60 border border-border-muted">
             <div className="text-left">
               <h3 className="text-xl font-semibold text-text-primary mb-2">
-                Have a project in mind?
+                {locale === 'en' ? 'Have a project in mind?' : 'Vous avez un projet en tête ?'}
               </h3>
               <p className="text-text-secondary">
-                Let&apos;s discuss how I can help bring your ideas to life
+                {locale === 'en' 
+                  ? "Let's discuss how I can help bring your ideas to life"
+                  : 'Discutons de la façon dont je peux vous aider à concrétiser vos idées'}
               </p>
             </div>
             <motion.button
@@ -183,7 +99,7 @@ export default function Projects() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Get in Touch
+              {locale === 'en' ? 'Get in Touch' : 'Contactez-moi'}
               <ArrowRight className="w-4 h-4" />
             </motion.button>
           </div>

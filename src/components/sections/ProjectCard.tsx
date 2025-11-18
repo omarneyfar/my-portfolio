@@ -1,34 +1,36 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Github, ExternalLink, Calendar, User } from 'lucide-react'
-
-interface Project {
-  id: string
-  slug: string
-  title: string
-  description: string
-  longDescription: string
-  technologies: string[]
-  category: 'freelance' | 'tekab' | 'sofflex'
-  featured: boolean
-  githubUrl?: string
-  liveUrl?: string
-  imageUrl?: string
-  year: number
-  client?: string
-}
+import { ArrowRight, Github, ExternalLink } from 'lucide-react'
+import { Project } from '@/data/types'
 
 interface ProjectCardProps {
   project: Project
   index?: number
+  locale: 'en' | 'fr'
 }
 
-export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export default function ProjectCard({ project, index = 0, locale = 'en' }: ProjectCardProps) {
   const categoryColors = {
     freelance: 'bg-freelance/10 text-freelance border-freelance/20',
     tekab: 'bg-tekab/10 text-tekab border-tekab/20',
     sofflex: 'bg-sofflex/10 text-sofflex border-sofflex/20',
+  }
+  
+  // Get the correct text based on locale
+  const getLocalizedText = (text: any) => 
+    typeof text === 'string' ? text : text[locale];
+    
+  // Get the first letter of the title for the fallback icon
+  const getTitleInitial = (title: any) => 
+    typeof title === 'string' ? title.charAt(0) : title[locale].charAt(0);
+    
+  // Determine the category class based on project slug or other criteria
+  const getCategoryClass = (slug: string) => {
+    if (slug.includes('freelance')) return 'freelance';
+    if (slug.includes('tekab')) return 'tekab';
+    if (slug.includes('sofflex')) return 'sofflex';
+    return 'freelance'; // default
   }
 
   return (
@@ -37,94 +39,74 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative"
+      className="group relative h-full flex flex-col"
     >
-      <div className="relative bg-bg-surface rounded-2xl overflow-hidden border border-border-muted hover:border-border-secondary transition-all duration-300">
+      <div className="relative bg-bg-surface rounded-2xl overflow-hidden border border-border-muted hover:border-border-secondary transition-all duration-300 flex-1 flex flex-col">
         {/* Project Image */}
         <div className="relative h-48 bg-gradient-to-br from-bg-secondary to-bg-surface overflow-hidden">
-          {project.imageUrl ? (
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-accent to-freelance rounded-xl flex items-center justify-center">
-                <span className="text-text-inverse font-bold text-xl">
-                  {project.title.charAt(0)}
-                </span>
-              </div>
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-bg-tertiary to-bg-surface/50">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent/20 to-freelance/20 flex items-center justify-center">
+              <span className="text-3xl font-bold text-text-primary/50">
+                {getTitleInitial(project.title)}
+              </span>
             </div>
-          )}
-          
-          {/* Category Badge */}
-          <div className="absolute top-4 left-4">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${categoryColors[project.category]}`}>
-              {project.category}
-            </span>
-          </div>
-
-          {/* Year Badge */}
-          <div className="absolute top-4 right-4">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-bg-surface/80 text-text-muted border border-border-muted">
-              {project.year}
-            </span>
           </div>
         </div>
-
+        
         {/* Content */}
-        <div className="p-6 space-y-4">
-          {/* Title */}
-          <h3 className="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors">
-            {project.title}
-          </h3>
+        <div className="p-6 flex-1 flex flex-col">
+          {/* Category and Title */}
+          <div className="flex flex-wrap items-center gap-3 mb-3">
+            <span className={`px-3 py-1 text-xs font-medium rounded-full ${categoryColors[getCategoryClass(project.slug)]}`}>
+              {getCategoryClass(project.slug).charAt(0).toUpperCase() + getCategoryClass(project.slug).slice(1)}
+            </span>
+            <h3 className="text-xl font-bold text-text-primary group-hover:text-accent transition-colors">
+              {getLocalizedText(project.title)}
+            </h3>
+          </div>
 
           {/* Description */}
-          <p className="text-text-secondary line-clamp-3">
-            {project.description}
+          <p className="text-text-secondary mb-4 line-clamp-2 flex-1">
+            {getLocalizedText(project.shortDescription)}
           </p>
 
           {/* Technologies */}
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.slice(0, 4).map((tech, techIndex) => (
-              <span
-                key={techIndex}
-                className="inline-flex items-center px-2 py-1 rounded-lg bg-bg-surface/60 border border-border-muted text-xs text-text-secondary"
-              >
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.technologies.slice(0, 4).map((tech) => (
+              <span key={tech} className="px-2 py-1 text-xs rounded bg-bg-secondary text-text-secondary">
                 {tech}
               </span>
             ))}
             {project.technologies.length > 4 && (
-              <span className="inline-flex items-center px-2 py-1 rounded-lg bg-bg-surface/60 border border-border-muted text-xs text-text-muted">
+              <span className="text-xs text-text-tertiary self-center">
                 +{project.technologies.length - 4} more
               </span>
             )}
           </div>
 
           {/* Links */}
-          <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center justify-between pt-2 mt-auto">
             <div className="flex items-center gap-3">
-              {project.liveUrl && (
+              {project.demo && (
                 <a
-                  href={project.liveUrl}
+                  href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors text-sm font-medium"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Live Demo
+                  {locale === 'en' ? 'Live Demo' : 'Démo'}
                 </a>
               )}
-              {project.githubUrl && (
+              {project.github && (
                 <a
-                  href={project.githubUrl}
+                  href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors text-sm font-medium"
                 >
                   <Github className="w-4 h-4" />
-                  Code
+                  {locale === 'en' ? 'Code' : 'Code source'}
                 </a>
               )}
             </div>

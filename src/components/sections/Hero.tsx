@@ -2,8 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Mail, ExternalLink, Star, Zap, Shield, Cpu, Rocket } from 'lucide-react'
+import { HeroData } from '@/data/types'
 
-export default function Hero() {
+interface HeroProps {
+  data: HeroData
+  locale: 'en' | 'fr'
+}
+
+export default function Hero({ data, locale }: HeroProps) {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-bg-primary to-bg-secondary pt-20">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -17,7 +23,7 @@ export default function Hero() {
           >
             {/* Eyebrow */}
             <div className="flex items-center gap-2 text-accent font-mono text-sm">
-              <span>Full-Stack Engineer</span>
+              <span>{data.subtitle[locale]}</span>
               <span>•</span>
               <span>Sfax, Tunisia</span>
             </div>
@@ -26,14 +32,12 @@ export default function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="text-text-primary">Omar Naifar</span>
               <br />
-              <span className="text-gradient">Full-Stack Engineer</span>
+              <span className="text-gradient">{data.subtitle[locale]}</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg text-text-secondary leading-relaxed max-w-lg">
-              Building scalable web applications with modern technologies. 
-                  Specialized in React, Next.js, and Node.js. 
-                  Turning ideas into production-ready solutions.
+              {data.description[locale]}
             </p>
 
             {/* CTA Buttons */}
@@ -43,7 +47,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Hire Omar
+                {data.ctaPrimary[locale]}
                 <ArrowRight className="inline-block ml-2 w-5 h-5" />
               </motion.button>
               

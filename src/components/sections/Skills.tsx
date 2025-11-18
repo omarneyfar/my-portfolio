@@ -11,217 +11,211 @@ import {
   Database,
   GitBranch,
   Palette,
-  Globe,
   Shield,
-  Zap
+  Zap,
+  Code2,
+  CpuIcon,
+  ServerIcon,
+  SmartphoneIcon,
+  CloudIcon,
+  BrainIcon,
+  GitBranchIcon,
+  DatabaseIcon,
+  PaletteIcon
 } from 'lucide-react'
+import { SkillsData, SkillCategory } from '@/data/types'
 
-const skillCategories = {
-  Frontend: [
-    { name: 'React', icon: Cpu, level: 90 },
-    { name: 'Next.js', icon: Code, level: 85 },
-    { name: 'TypeScript', icon: Code, level: 88 },
-    { name: 'Tailwind CSS', icon: Palette, level: 92 },
-    { name: 'Framer Motion', icon: Brain, level: 80 },
-  ],
-  Backend: [
-    { name: 'Node.js', icon: Server, level: 85 },
-    { name: 'Express', icon: Server, level: 82 },
-    { name: 'Prisma', icon: Database, level: 78 },
-    { name: 'PostgreSQL', icon: Database, level: 75 },
-    { name: 'REST APIs', icon: Server, level: 88 },
-  ],
-  Mobile: [
-    { name: 'React Native', icon: Smartphone, level: 75 },
-    { name: 'Flutter', icon: Smartphone, level: 70 },
-    { name: 'iOS Development', icon: Smartphone, level: 65 },
-  ],
-  DevOps: [
-    { name: 'Docker', icon: Cloud, level: 72 },
-    { name: 'CI/CD', icon: GitBranch, level: 78 },
-    { name: 'AWS', icon: Cloud, level: 70 },
-    { name: 'Vercel', icon: Cloud, level: 85 },
-  ],
-  AI: [
-    { name: 'OpenAI APIs', icon: Brain, level: 80 },
-    { name: 'LangChain', icon: Brain, level: 75 },
-    { name: 'Python ML', icon: Brain, level: 70 },
-  ]
+interface SkillsProps {
+  data: SkillsData
+  locale: 'en' | 'fr'
 }
 
-const proficiencyTech = [
-  { name: 'Next.js', level: 85, category: 'Frontend' },
-  { name: 'React', level: 90, category: 'Frontend' },
-  { name: 'Node.js', level: 85, category: 'Backend' },
-  { name: 'Prisma', level: 78, category: 'Backend' },
-  { name: 'Flutter', level: 70, category: 'Mobile' },
-  { name: 'Firebase', level: 82, category: 'Backend' },
-]
+// Map skill names to icons
+const getSkillIcon = (skillName: string) => {
+  const lowerName = skillName.toLowerCase()
+  if (lowerName.includes('react')) return Cpu
+  if (lowerName.includes('next')) return Code2
+  if (lowerName.includes('typescript') || lowerName.includes('javascript')) return Code
+  if (lowerName.includes('tailwind') || lowerName.includes('css')) return Palette
+  if (lowerName.includes('node') || lowerName.includes('express')) return Server
+  if (lowerName.includes('mongo') || lowerName.includes('postgre') || lowerName.includes('sql')) return Database
+  if (lowerName.includes('docker') || lowerName.includes('aws') || lowerName.includes('vercel')) return Cloud
+  if (lowerName.includes('git')) return GitBranch
+  if (lowerName.includes('ai') || lowerName.includes('ml') || lowerName.includes('python')) return Brain
+  return Code // Default icon
+}
 
-export default function Skills() {
+// Map category titles to icons
+const getCategoryIcon = (categoryTitle: string) => {
+  if (!categoryTitle) return Code2;
+  const lowerTitle = categoryTitle.toLowerCase();
+  if (lowerTitle.includes('front')) return CpuIcon;
+  if (lowerTitle.includes('back') || lowerTitle.includes('api')) return ServerIcon;
+  if (lowerTitle.includes('mobile')) return SmartphoneIcon;
+  if (lowerTitle.includes('devops') || lowerTitle.includes('cloud')) return CloudIcon;
+  if (lowerTitle.includes('ai') || lowerTitle.includes('ml')) return BrainIcon;
+  if (lowerTitle.includes('design') || lowerTitle.includes('ui/ux')) return PaletteIcon;
+  if (lowerTitle.includes('database')) return DatabaseIcon;
+  return Code2;
+}
+
+export default function Skills({ data, locale = 'en' }: SkillsProps) {
+  // Helper function to get localized text with fallback
+  const getLocalizedText = (text: any, fallback: string = '') => {
+    if (!text) return fallback;
+    return typeof text === 'string' ? text : text?.[locale] || fallback;
+  };
+
+  // Helper function to create a deterministic number from a string
+  const hashString = (str: string): number => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    return Math.abs(hash);
+  };
+
+  // Safe access to data with fallbacks
+  const title = getLocalizedText(data?.title, 'My Skills');
+  const subtitle = getLocalizedText(
+    data?.subtitle, 
+    'Technologies and tools I work with on a daily basis'
+  );
+  const categories = data?.categories || [];
+
+  // Use additional expertise from data with fallback
+  const expertiseItems = data.additionalExpertise || [
+    { en: 'Agile Methodologies', fr: 'Méthodologies Agile' },
+    { en: 'Code Architecture', fr: 'Architecture de code' },
+    { en: 'Performance Optimization', fr: 'Optimisation des performances' },
+    { en: 'Security Best Practices', fr: 'Bonnes pratiques de sécurité' },
+    { en: 'UI/UX Design', fr: 'Conception UI/UX' },
+    { en: 'Testing & QA', fr: 'Tests & Assurance Qualité' }
+  ];
+
+  if (!data || !categories) {
+    return (
+      <section id="skills" className="py-20 bg-bg-primary">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {title}
+            </h2>
+            <p className="text-text-secondary max-w-2xl mx-auto">
+              {subtitle}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-bg-secondary rounded-xl p-6 shadow-lg">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-bg-tertiary rounded-lg">
+                  <Code2 className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-semibold">No skills data available</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="skills" className="py-20 bg-bg-primary">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Skills & Expertise
+      <div className="max-w-6xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {title}
           </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            Full-stack development capabilities spanning modern web technologies, 
-            mobile development, and AI integration.
+          <p className="text-text-secondary max-w-2xl mx-auto">
+            {subtitle}
           </p>
-          <div className="w-12 h-1 bg-accent mx-auto mt-6 rounded" />
-        </motion.div>
+        </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left Column - Skill Categories */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {Object.entries(skillCategories).map(([category, skills], categoryIndex) => (
-              <div key={category} className="space-y-4">
-                <h3 className="text-xl font-semibold text-text-primary mb-4">{category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, skillIndex) => {
-                    const Icon = skill.icon
-                    return (
-                      <motion.div
-                        key={skill.name}
-                        className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-bg-surface/60 border border-border-muted hover:bg-bg-surface/80 transition-colors"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ 
-                          duration: 0.3, 
-                          delay: categoryIndex * 0.1 + skillIndex * 0.05 
-                        }}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Icon className="w-4 h-4 text-accent" />
-                        <span className="text-text-primary text-sm font-medium">{skill.name}</span>
-                        <span className="text-text-muted text-xs">{skill.level}%</span>
-                      </motion.div>
-                    )
-                  })}
-                </div>
-              </div>
-            ))}
-          </motion.div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categories.map((category, index) => {
+            const categoryTitle = getLocalizedText(category?.title, 'Category');
+            const Icon = getCategoryIcon(categoryTitle);
+            if (!categoryTitle || !Icon) return null;
 
-          {/* Right Column - Proficiency Bars */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
-          >
-            <h3 className="text-xl font-semibold text-text-primary mb-6">Core Technologies</h3>
-            {proficiencyTech.map((tech, index) => (
+            return (
               <motion.div
-                key={tech.name}
-                className="space-y-2"
+                key={`${categoryTitle}-${index}`}
+                className="bg-bg-secondary rounded-xl p-6 shadow-lg"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-text-primary font-medium">{tech.name}</span>
-                    <span className="text-xs text-text-muted bg-bg-surface/60 px-2 py-1 rounded">
-                      {tech.category}
-                    </span>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-bg-tertiary rounded-lg">
+                    <Icon className="w-6 h-6 text-accent" />
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-text-secondary">{tech.level}%</span>
-                    <div className="w-8 h-8 bg-accent/20 rounded-lg flex items-center justify-center">
-                      <span className="text-accent text-xs font-bold">{tech.level}</span>
-                    </div>
-                  </div>
+                  <h3 className="text-xl font-semibold">{categoryTitle}</h3>
                 </div>
-                <div className="relative">
-                  {/* Background track */}
-                  <div className="w-full h-3 bg-bg-surface/60 rounded-full overflow-hidden">
-                    {/* Progress bar */}
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-accent to-accent/80 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${tech.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ 
-                        duration: 1, 
-                        delay: index * 0.1 + 0.5,
-                        ease: "easeOut"
-                      }}
-                    />
-                  </div>
-                  {/* Animated shine effect */}
-                  <motion.div
-                    className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-text-primary/20 to-transparent"
-                    initial={{ x: -100 }}
-                    whileInView={{ x: 300 }}
-                    viewport={{ once: true }}
-                    transition={{ 
-                      duration: 1.5, 
-                      delay: index * 0.1 + 1,
-                      repeat: Infinity,
-                      repeatDelay: 3
-                    }}
-                  />
+                
+                <div className="space-y-3">
+                  {(category?.skills || []).map((skill, skillIndex) => {
+                    const skillName = getLocalizedText(skill, 'Skill');
+                    const SkillIcon = getSkillIcon(skillName);
+                    if (!skillName || !SkillIcon) return null;
+
+                    // Create a deterministic level based on skill name (between 70-100%)
+                    const level = 70 + (hashString(skillName) % 31); // 70-100
+                    
+                    return (
+                      <div key={`${categoryTitle}-${skillName}`} className="space-y-1">
+                        <div className="flex justify-between items-center">
+                          <div className="flex items-center gap-2">
+                            <SkillIcon className="w-5 h-5 text-text-secondary" />
+                            <span className="font-medium">{skillName}</span>
+                          </div>
+                          <span className="text-sm text-text-tertiary">{level}%</span>
+                        </div>
+                        <div className="h-2 bg-bg-tertiary rounded-full overflow-hidden">
+                          <motion.div 
+                            className="h-full bg-gradient-to-r from-accent to-accent/80 rounded-full"
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                          />
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
               </motion.div>
-            ))}
-
-            {/* Additional Skills Summary */}
-            <motion.div
-              className="mt-8 p-6 rounded-2xl bg-bg-surface/60 border border-border-muted"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <h4 className="text-lg font-semibold text-text-primary mb-4">Additional Expertise</h4>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-text-secondary">Agile Methodologies</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-freelance rounded-full" />
-                  <span className="text-text-secondary">Code Architecture</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-text-secondary">Performance Optimization</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-freelance rounded-full" />
-                  <span className="text-text-secondary">Security Best Practices</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-text-secondary">UI/UX Design</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-freelance rounded-full" />
-                  <span className="text-text-secondary">Testing & QA</span>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+            )
+          })}
         </div>
+
+        {/* Additional Skills Summary */}
+        <motion.div
+          className="mt-12 p-6 rounded-2xl bg-bg-surface/60 border border-border-muted"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h4 className="text-lg font-semibold text-text-primary mb-4">
+            {locale === 'en' ? 'Additional Expertise' : 'Expertise supplémentaire'}
+          </h4>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            {expertiseItems.map((item, index) => {
+              const skillText = getLocalizedText(item, '');
+              if (!skillText) return null;
+              return (
+                <div key={`${skillText}-${index}`} className="flex items-center gap-2">
+                  <div className={`w-2 h-2 rounded-full ${index % 2 === 0 ? 'bg-accent' : 'bg-freelance'}`} />
+                  <span className="text-text-secondary">{skillText}</span>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

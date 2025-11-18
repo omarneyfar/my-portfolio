@@ -19,7 +19,7 @@ export default function Header() {
   }, [])
 
   const navLinks = ['Home', 'About', 'Projects', 'Contact']
-  const languages = ['EN', 'FR', 'AR']
+  const languages = ['EN', 'FR']
 
   return (
     <>
