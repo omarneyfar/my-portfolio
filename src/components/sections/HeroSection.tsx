@@ -5,18 +5,72 @@ import { ArrowRight, Zap, Cpu, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-interface HeroProps {
-  globals: any;
-  heroData: any;
+interface HeroData {
+  headline: string | { fr: string; en: string };
+  subtext: string | { fr: string; en: string };
+  description: string | { fr: string; en: string };
+  ctaPrimary: {
+    text: string | { fr: string; en: string };
+    link: string;
+  };
+  ctaSecondary: {
+    text: string | { fr: string; en: string };
+    link: string;
+  };
 }
 
-export default function Hero({ globals, heroData }: HeroProps) {
+interface GlobalData {
+  jobTitle: string | { fr: string; en: string };
+  location: string | { fr: string; en: string };
+  siteName: {
+    en: string;
+    fr: string;
+  };
+  [key: string]: any;
+}
+
+interface HeroSectionProps {
+  globals: GlobalData;
+  heroData: HeroData;
+}
+
+const FeatureCard = ({ 
+  icon: Icon, 
+  title, 
+  description 
+}: { 
+  icon: React.ComponentType<{ className?: string }>;
+  title: { fr: string; en: string };
+  description: { fr: string; en: string };
+}) => {
+  const { t } = useLanguage();
+  
+  return (
+    <motion.div
+      className="inline-flex items-center gap-3 px-4 py-3 rounded-lg bg-bg-surface/60 border border-border-muted"
+      whileHover={{ scale: 1.05 }}
+    >
+      <Icon className="w-5 h-5 text-freelance" />
+      <div>
+        <div className="font-semibold text-text-primary text-sm">
+          {t(title)}
+        </div>
+        <div className="text-xs text-text-muted">
+          {t(description)}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default function HeroSection({ globals, heroData }: HeroSectionProps) {
   const { t } = useLanguage();
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-bg-primary to-bg-secondary pt-20">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,53 +117,25 @@ export default function Hero({ globals, heroData }: HeroProps) {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <motion.div
-                className="inline-flex items-center gap-3 px-4 py-3 rounded-lg bg-bg-surface/60 border border-border-muted"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Zap className="w-5 h-5 text-freelance" />
-                <div>
-                  <div className="font-semibold text-text-primary text-sm">
-                    {t({ fr: 'MVP en 1 mois', en: 'MVP in 1 month' })}
-                  </div>
-                  <div className="text-xs text-text-muted">
-                    {t({ fr: 'Livraison rapide', en: 'Fast delivery' })}
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="inline-flex items-center gap-3 px-4 py-3 rounded-lg bg-bg-surface/60 border border-border-muted"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Cpu className="w-5 h-5 text-accent" />
-                <div>
-                  <div className="font-semibold text-text-primary text-sm">
-                    {t({ fr: 'IA & Automation', en: 'AI & Automation' })}
-                  </div>
-                  <div className="text-xs text-text-muted">
-                    {t({ fr: 'Solutions intelligentes', en: 'Smart solutions' })}
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="inline-flex items-center gap-3 px-4 py-3 rounded-lg bg-bg-surface/60 border border-border-muted"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Rocket className="w-5 h-5 text-freelance" />
-                <div>
-                  <div className="font-semibold text-text-primary text-sm">
-                    {t({ fr: 'Bout en bout', en: 'End-to-end' })}
-                  </div>
-                  <div className="text-xs text-text-muted">
-                    {t({ fr: 'Développement complet', en: 'Full development' })}
-                  </div>
-                </div>
-              </motion.div>
+              <FeatureCard 
+                icon={Zap}
+                title={{ fr: 'MVP en 1 mois', en: 'MVP in 1 month' }}
+                description={{ fr: 'Livraison rapide', en: 'Fast delivery' }}
+              />
+              <FeatureCard 
+                icon={Cpu}
+                title={{ fr: 'IA & Automation', en: 'AI & Automation' }}
+                description={{ fr: 'Solutions intelligentes', en: 'Smart solutions' }}
+              />
+              <FeatureCard 
+                icon={Rocket}
+                title={{ fr: 'Bout en bout', en: 'End-to-end' }}
+                description={{ fr: 'Développement complet', en: 'Full development' }}
+              />
             </div>
           </motion.div>
 
+          {/* Right Column - Visual */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}

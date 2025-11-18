@@ -3,9 +3,10 @@ import AboutSection from '@/components/sections/AboutSection';
 import { getSectionData, getGlobals } from '@/lib/content.server';
 
 export default async function AboutPage() {
-  const globals = getGlobals();
-  const aboutSection = getSectionData('about-content');
-  const aboutData = aboutSection.components[0].variables;
+  const [globals, ...sections] = await Promise.all([
+      getGlobals(),
+      ...ABOUT_SECTIONS.map(section => getSectionData(section))
+    ]);
 
   return (
     <ClientLayout globals={globals}>
