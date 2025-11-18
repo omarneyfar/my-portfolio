@@ -8,10 +8,11 @@ const HOME_SECTIONS = ['hero', 'skills', 'projects', 'contact'];
 
 export default async function Home() {
   // Fetch all data in parallel
-  const [globals, ...sections] = await Promise.all([
-    getGlobals(),
-    ...getPageById("home").then((page)=> return page.sections.map(section => getSectionData(section)))
-  ]);
+  const globals = await getGlobals();
+  const page = await getPageById("home");
+  const sections = await Promise.all(
+    page.sections.map(section => getSectionData(section))
+  );
 
   // Transform section data for the section registry
   const sectionComponents = sections
