@@ -1,55 +1,57 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { MapPin, Mail, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { AboutVariables } from '@/lib/content.types';
 
 export default function AboutComponent(props: AboutVariables) {
   const { t, language } = useLanguage();
-
   const content = props.content[language] || props.content.en;
 
-  return (
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl lg:text-4xl font-bold mb-6">{t(props.title)}</h2>
-        <div className="space-y-4">
-          {content.map((paragraph, idx) => (
-            <motion.p
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="text-gray-300 leading-relaxed"
-            >
-              {paragraph}
-            </motion.p>
-          ))}
-        </div>
-      </motion.div>
+  // Simple logic to split title for gradient effect (first word vs rest)
+  // This is a basic approximation to match the "About [Name]" style
+  const titleText = t(props.title);
+  const firstSpaceIndex = titleText.indexOf(' ');
+  const firstPart = firstSpaceIndex !== -1 ? titleText.substring(0, firstSpaceIndex) : titleText;
+  const secondPart = firstSpaceIndex !== -1 ? titleText.substring(firstSpaceIndex + 1) : '';
 
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="relative h-96 lg:h-[500px]"
-      >
-        {/* <Image
-          src={props.image}
-          alt={t(props.title)}
-          fill
-          className="object-cover rounded-2xl"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        /> */}
-      </motion.div>
-    </div>
+  return (
+    <section className="pt-32 pb-20">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-6"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary">
+            {firstPart} <span className="text-gradient">{secondPart}</span>
+          </h1>
+          <div className="text-xl text-text-secondary max-w-3xl mx-auto space-y-4">
+            {content.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
+          </div>
+
+          {props.contactInfo && (
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex items-center gap-2 text-text-muted">
+                <MapPin className="w-4 h-4" />
+                {t(props.contactInfo.location)}
+              </div>
+              <div className="flex items-center gap-2 text-text-muted">
+                <Mail className="w-4 h-4" />
+                {props.contactInfo.email}
+              </div>
+              <div className="flex items-center gap-2 text-text-muted">
+                <Phone className="w-4 h-4" />
+                {props.contactInfo.phone}
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </div>
+    </section>
   );
 }

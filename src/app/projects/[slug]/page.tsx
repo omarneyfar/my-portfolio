@@ -10,9 +10,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const globals = await getGlobals();
-  const project = await getProjectBySlug(params.slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();

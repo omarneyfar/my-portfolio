@@ -6,12 +6,18 @@ import SkillsSection from '@/components/sections/SkillsSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ContactSection from '@/components/sections/ContactSection';
+import TimelineSection from '@/components/sections/TimelineSection';
+import StatsSection from '@/components/sections/StatsSection';
+import AchievementsSection from '@/components/sections/AchievementsSection';
 
 import HeroComponent from '@/components/dynamic/HeroComponent';
 import SkillsGrid from '@/components/dynamic/SkillsGrid';
 import ProjectGrid from '@/components/dynamic/ProjectGrid';
 import AboutComponent from '@/components/dynamic/AboutComponent';
 import ContactForm from '@/components/dynamic/ContactForm';
+import StatsComponent from '@/components/dynamic/StatsComponent';
+import TimelineComponent from '@/components/dynamic/TimelineComponent';
+import AchievementsComponent from '@/components/dynamic/AchievementsComponent';
 
 export const sectionRegistry: Record<SectionType, ComponentType<any>> = {
   HeroSection,
@@ -19,6 +25,9 @@ export const sectionRegistry: Record<SectionType, ComponentType<any>> = {
   ProjectsSection,
   AboutSection,
   ContactSection,
+  StatsSection,
+  TimelineSection,
+  AchievementsSection,
 };
 
 export const componentRegistry: Record<JsonComponentType, ComponentType<any>> = {
@@ -27,6 +36,9 @@ export const componentRegistry: Record<JsonComponentType, ComponentType<any>> = 
   ProjectGrid,
   AboutComponent,
   ContactForm,
+  StatsComponent,
+  TimelineComponent,
+  AchievementsComponent,
 };
 
 export const getSectionComponent = (type: SectionType): ComponentType<any> | null => {
