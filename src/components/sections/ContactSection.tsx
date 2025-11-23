@@ -9,7 +9,7 @@ interface ContactSectionProps {
 
 export default function ContactSection({ children }: ContactSectionProps) {
   return (
-    <section id="contact" className="py-20 px-6 lg:px-12 bg-gray-900/50">
+    <section id="contact" className="py-20 px-6 lg:px-12">
       <div className="max-w-[1200px] mx-auto">
         {children}
       </div>

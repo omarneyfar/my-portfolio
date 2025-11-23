@@ -89,15 +89,15 @@ export default function ContactForm(props: ContactVariables) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3 md:mb-4">
             {t(props.title)}
           </h2>
-          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto">
             {t(props.description)}
           </p>
-          <div className="w-12 h-1 bg-accent mx-auto mt-6 rounded" />
+          <div className="w-12 h-1 bg-accent mx-auto mt-4 md:mt-6 rounded" />
         </motion.div>
 
         {/* Contact Info Cards */}
@@ -107,18 +107,18 @@ export default function ContactForm(props: ContactVariables) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid md:grid-cols-3 gap-6 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-10 md:mb-12"
           >
             <motion.a
               href={`mailto:${props.contactInfo.email}`}
               whileHover={{ scale: 1.02, y: -4 }}
-              className="bg-bg-surface/60 backdrop-blur-sm rounded-2xl p-6 border border-border-muted hover:border-accent transition-all group"
+              className="bg-bg-surface/60 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-border-muted hover:border-accent transition-all group"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Mail className="w-6 h-6 text-accent" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
-              <div className="text-text-muted text-sm mb-1">Email</div>
-              <div className="text-text-primary font-medium group-hover:text-accent transition-colors">
+              <div className="text-text-muted text-xs sm:text-sm mb-1">Email</div>
+              <div className="text-text-primary font-medium text-sm sm:text-base group-hover:text-accent transition-colors break-all">
                 {props.contactInfo.email}
               </div>
             </motion.a>
@@ -126,26 +126,26 @@ export default function ContactForm(props: ContactVariables) {
             <motion.a
               href={`tel:${props.contactInfo.phone}`}
               whileHover={{ scale: 1.02, y: -4 }}
-              className="bg-bg-surface/60 backdrop-blur-sm rounded-2xl p-6 border border-border-muted hover:border-freelance transition-all group"
+              className="bg-bg-surface/60 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-border-muted hover:border-freelance transition-all group"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-freelance/20 to-freelance/5 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Phone className="w-6 h-6 text-freelance" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-freelance/20 to-freelance/5 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-freelance" />
               </div>
-              <div className="text-text-muted text-sm mb-1">Phone</div>
-              <div className="text-text-primary font-medium group-hover:text-freelance transition-colors">
+              <div className="text-text-muted text-xs sm:text-sm mb-1">Phone</div>
+              <div className="text-text-primary font-medium text-sm sm:text-base group-hover:text-freelance transition-colors">
                 {props.contactInfo.phone}
               </div>
             </motion.a>
 
             <motion.div
               whileHover={{ scale: 1.02, y: -4 }}
-              className="bg-bg-surface/60 backdrop-blur-sm rounded-2xl p-6 border border-border-muted hover:border-tekab transition-all group"
+              className="bg-bg-surface/60 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-border-muted hover:border-tekab transition-all group sm:col-span-2 md:col-span-1"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-tekab/20 to-tekab/5 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <MapPin className="w-6 h-6 text-tekab" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-tekab/20 to-tekab/5 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-tekab" />
               </div>
-              <div className="text-text-muted text-sm mb-1">Location</div>
-              <div className="text-text-primary font-medium">
+              <div className="text-text-muted text-xs sm:text-sm mb-1">Location</div>
+              <div className="text-text-primary font-medium text-sm sm:text-base">
                 {t(props.contactInfo.location)}
               </div>
             </motion.div>
@@ -160,8 +160,8 @@ export default function ContactForm(props: ContactVariables) {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="bg-bg-surface/80 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-border-muted shadow-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-bg-surface/60 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-border-muted shadow-2xl">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 {props.formFields.slice(0, 2).map((field) => (
                   <div key={field.name}>
@@ -227,8 +227,8 @@ export default function ContactForm(props: ContactVariables) {
                 whileHover={{ scale: status === "submitting" || status === "success" ? 1 : 1.02 }}
                 whileTap={{ scale: status === "submitting" || status === "success" ? 1 : 0.98 }}
                 className={`w-full px-6 py-4 rounded-xl font-semibold transition-all shadow-lg flex items-center justify-center gap-2 ${status === "success"
-                    ? "bg-green-500 text-white"
-                    : "bg-gradient-to-r from-accent to-freelance text-text-inverse hover:shadow-xl hover:shadow-accent/20"
+                  ? "bg-green-500 text-white"
+                  : "bg-[#00C2A8]  from-accent to-freelance text-text-inverse hover:shadow-xl hover:shadow-accent/20"
                   } disabled:opacity-70 disabled:cursor-not-allowed`}
               >
                 {status === "submitting" ? (

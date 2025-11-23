@@ -38,24 +38,24 @@ export default function ProjectGrid(props: ProjectsVariables) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3 md:mb-4">
             {t(props.title)}
           </h2>
-          <div className="w-12 h-1 bg-accent mx-auto mt-6 rounded" />
+          <div className="w-12 h-1 bg-accent mx-auto mt-4 md:mt-6 rounded" />
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 gap-6">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 md:mb-12 gap-4 md:gap-6">
           {props.filterOptions && (
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 w-full lg:w-auto">
               {props.filterOptions.map((option) => (
                 <button
                   key={option.id}
                   onClick={() => setFilter(option.id)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${filter === option.id
-                    ? "bg-accent text-text-inverse"
-                    : "bg-bg-surface border border-border-muted text-text-secondary hover:bg-bg-surface/80"
+                  className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors text-sm sm:text-base ${filter === option.id
+                      ? "bg-accent text-text-inverse"
+                      : "bg-bg-surface border border-border-muted text-text-secondary hover:bg-bg-surface/80 active:scale-95"
                     }`}
                   aria-label={`Filter by ${t(option.label)}`}
                 >
@@ -69,7 +69,7 @@ export default function ProjectGrid(props: ProjectsVariables) {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 bg-bg-surface border border-border-muted rounded-lg focus:outline-none focus:border-accent text-text-primary"
+              className="w-full lg:w-auto px-3 sm:px-4 py-2 bg-bg-surface border border-border-muted rounded-lg focus:outline-none focus:border-accent text-text-primary text-sm sm:text-base"
               aria-label="Sort projects"
             >
               {props.sortOptions.map((option) => (
@@ -81,7 +81,7 @@ export default function ProjectGrid(props: ProjectsVariables) {
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {displayedProjects.map((project, idx) => (
             <ProjectCard key={project.id} project={project} index={idx} />
           ))}
@@ -116,20 +116,20 @@ export default function ProjectGrid(props: ProjectsVariables) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-20 text-center"
+            className="mt-16 md:mt-20 text-center"
           >
-            <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 rounded-2xl bg-bg-surface/60 border border-border-muted">
-              <div className="text-left">
-                <h3 className="text-xl font-semibold text-text-primary mb-2">
+            <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-bg-surface/60 border border-border-muted w-full max-w-2xl">
+              <div className="text-center sm:text-left flex-1">
+                <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">
                   {t(props.cta.title)}
                 </h3>
-                <p className="text-text-secondary">
+                <p className="text-text-secondary text-sm sm:text-base">
                   {t(props.cta.description)}
                 </p>
               </div>
               <Link href={props.cta.buttonLink}>
                 <motion.button
-                  className="px-6 py-3 bg-accent text-text-inverse rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md flex items-center gap-2"
+                  className="px-5 sm:px-6 py-3 bg-accent text-text-inverse rounded-xl font-semibold hover:translate-y-[-2px] transition-transform duration-150 shadow-md flex items-center gap-2 text-sm sm:text-base active:scale-95 whitespace-nowrap"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

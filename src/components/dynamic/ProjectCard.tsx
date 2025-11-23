@@ -102,8 +102,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                         )}
                     </div>
 
-                    {/* Links */}
-                    <div className="flex items-center justify-between pt-4 mt-auto border-t border-border-muted/50">
+                    {/* <div className="flex items-center justify-between pt-4 mt-auto border-t border-border-muted/50">
                         <div className="flex items-center gap-3">
                             {project.liveUrl && (
                                 <a
@@ -135,7 +134,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                         >
                             <ArrowRight className="w-5 h-5 text-accent" />
                         </motion.div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

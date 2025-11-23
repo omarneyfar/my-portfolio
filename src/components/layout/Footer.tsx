@@ -84,24 +84,24 @@ export default function Footer({ globals }: FooterProps) {
 
   return (
     <footer className="bg-bg-secondary border-t border-border-muted">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-5 md:space-y-6 sm:col-span-2 lg:col-span-1"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-accent to-freelance rounded-xl flex items-center justify-center shadow-lg shadow-accent/20">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#00C2A8] to-[#FFB86B]  rounded-xl flex items-center justify-center shadow-lg shadow-accent/20">
                 <span className="text-text-inverse font-bold text-lg">
                   {globals?.siteName?.en?.split(' ').map((n: string) => n[0]).join('') || 'ON'}
                 </span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-text-primary to-accent bg-clip-text text-transparent">
-                {globals?.siteName?.en || 'Omar Naifar'}
+              <span className="text-text-primary font-semibold font-mono text-sm">
+                {globals?.siteName?.en || 'Omar Neyfar'}
               </span>
             </div>
 
@@ -168,9 +168,9 @@ export default function Footer({ globals }: FooterProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 pt-8 border-t border-border-muted"
+          className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border-muted"
         >
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {contactInfo.map((info, index) => (
               <a
                 key={index}
@@ -228,7 +228,7 @@ export default function Footer({ globals }: FooterProps) {
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-accent to-freelance text-text-inverse rounded-xl flex items-center justify-center shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/40 transition-all duration-300 z-50"
+        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-accent to-freelance text-text-inverse rounded-xl flex items-center justify-center shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/40 transition-all duration-300 z-50 active:scale-95"
         whileHover={{ scale: 1.1, rotate: 360 }}
         whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0, y: 20 }}
@@ -236,7 +236,7 @@ export default function Footer({ globals }: FooterProps) {
         transition={{ duration: 0.6, delay: 1 }}
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
       </motion.button>
     </footer>
   );

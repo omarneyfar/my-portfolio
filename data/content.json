@@ -84,10 +84,6 @@
         {
           "id": "projects",
           "type": "ProjectsSection"
-        },
-        {
-          "id": "contact-form",
-          "type": "ContactSection"
         }
       ]
     },
@@ -180,8 +176,8 @@
               "en": "Full‑Stack Engineer specialized in building scalable web and mobile applications. Expert in React, Vue.js, Next.js, Nest.js and AI integration."
             },
             "eyeBrowText": {
-              "fr": "Ingénieur Full‑Stack • Sfax, Tunisie",
-              "en": "Full‑Stack Engineer • Sfax, Tunisia"
+              "fr": "Ingénieur Full‑Stack",
+              "en": "Full‑Stack Engineer"
             },
             "ctaPrimary": {
               "text": {
@@ -211,14 +207,14 @@
           "variables": {
             "stats": [
               {
-                "value": "10+",
+                "value": "15+",
                 "label": {
                   "fr": "Projets livrés",
                   "en": "Projects Delivered"
                 }
               },
               {
-                "value": "2+",
+                "value": "3+",
                 "label": {
                   "fr": "Années d'expérience",
                   "en": "Years of Experience"
@@ -232,10 +228,10 @@
                 }
               },
               {
-                "value": "15+",
+                "value": "3+",
                 "label": {
-                  "fr": "Technologies maîtrisées",
-                  "en": "Technologies Mastered"
+                  "fr": "Clients",
+                  "en": "Clients"
                 }
               }
             ]
@@ -387,8 +383,18 @@
               },
               "items": [
                 {
+                  "name": "Next.js",
+                  "level": 95,
+                  "category": "Frontend"
+                },
+                {
                   "name": "React.js",
                   "level": 95,
+                  "category": "Frontend"
+                },
+                {
+                  "name": "Vue.js",
+                  "level": 80,
                   "category": "Frontend"
                 },
                 {
@@ -400,11 +406,6 @@
                   "name": "Node.js",
                   "level": 90,
                   "category": "Backend"
-                },
-                {
-                  "name": "TypeScript",
-                  "level": 90,
-                  "category": "Frontend"
                 },
                 {
                   "name": "Flutter",
@@ -510,7 +511,7 @@
                 "category": "freelance",
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://artello.example.com",
+                "liveUrl": "#",
                 "imageUrl": "https://placehold.co/800x600/0ea5e9/ffffff?text=Artello",
                 "year": 2025,
                 "client": "Freelance"
@@ -537,7 +538,7 @@
                 "category": "freelance",
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://glovo-clone.example.com",
+                "liveUrl": "#",
                 "imageUrl": "https://placehold.co/800x600/10b981/ffffff?text=Glovo+Clone",
                 "year": 2025,
                 "client": "Freelance"
@@ -561,7 +562,7 @@
                 "category": "freelance",
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://lenslifecoach.example.com",
+                "liveUrl": "#",
                 "imageUrl": "https://placehold.co/800x600/f59e0b/ffffff?text=Lens+Life+Coach",
                 "year": 2025,
                 "client": "Freelance"
