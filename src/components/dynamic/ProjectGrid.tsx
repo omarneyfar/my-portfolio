@@ -30,7 +30,7 @@ export default function ProjectGrid(props: ProjectsVariables) {
       : filteredProjects.slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 bg-bg-secondary">
+    <section id="projects" className="py-20 ">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
