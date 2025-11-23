@@ -14,7 +14,7 @@ export async function sendTelegramLog({ event, meta }: TelegramLogParams): Promi
 
   try {
     const message = formatLogMessage(event, meta);
-    
+
     const response = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,
       {

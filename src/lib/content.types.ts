@@ -59,7 +59,10 @@ export type SectionType =
   | "SkillsSection"
   | "ProjectsSection"
   | "AboutSection"
-  | "ContactSection";
+  | "ContactSection"
+  | "TimelineSection"
+  | "StatsSection"
+  | "AchievementsSection";
 
 // A page from the "pages" array
 export interface Page {
@@ -152,6 +155,13 @@ export interface ProjectsVariables {
     id: string;
     label: MultiLangText;
   }[];
+
+  cta?: {
+    title: MultiLangText;
+    description: MultiLangText;
+    buttonText: MultiLangText;
+    buttonLink: string;
+  };
 }
 
 export interface AboutVariables {
@@ -161,6 +171,11 @@ export interface AboutVariables {
     en: string[];
   };
   image: string;
+  contactInfo?: {
+    email: string;
+    phone: string;
+    location: MultiLangText;
+  };
 }
 
 export interface ContactField {
@@ -177,6 +192,51 @@ export interface ContactVariables {
   submitButton: MultiLangText;
   successMessage: MultiLangText;
   errorMessage: MultiLangText;
+  contactInfo: {
+    email: string;
+    phone: string;
+    location: MultiLangText;
+  };
+  downloadCV?: {
+    text: MultiLangText;
+    url: string;
+  };
+}
+
+export interface StatItem {
+  value: string;
+  label: MultiLangText;
+}
+
+export interface StatsVariables {
+  stats: StatItem[];
+}
+
+export interface TimelineEvent {
+  year: string;
+  title: MultiLangText;
+  company: string;
+  description: MultiLangText;
+  type: "work" | "education";
+}
+
+export interface TimelineVariables {
+  title: MultiLangText;
+  description: MultiLangText;
+  events: TimelineEvent[];
+}
+
+export interface AchievementItem {
+  icon: string;
+  title: MultiLangText;
+  description: MultiLangText;
+  year: string;
+}
+
+export interface AchievementsVariables {
+  title: MultiLangText;
+  description: MultiLangText;
+  achievements: AchievementItem[];
 }
 
 // ---------------------------------------------
@@ -188,7 +248,10 @@ export type ComponentType =
   | "SkillsGrid"
   | "ProjectGrid"
   | "AboutComponent"
-  | "ContactForm";
+  | "ContactForm"
+  | "StatsComponent"
+  | "TimelineComponent"
+  | "AchievementsComponent";
 
 export interface ComponentBase<TVariables> {
   id: string;
@@ -201,6 +264,9 @@ export type SkillsComponent = ComponentBase<SkillsVariables>;
 export type ProjectsComponent = ComponentBase<ProjectsVariables>;
 export type AboutComponent = ComponentBase<AboutVariables>;
 export type ContactComponent = ComponentBase<ContactVariables>;
+export type StatsComponent = ComponentBase<StatsVariables>;
+export type TimelineComponent = ComponentBase<TimelineVariables>;
+export type AchievementsComponent = ComponentBase<AchievementsVariables>;
 
 // ---------------------------------------------
 // SECTIONS
@@ -217,6 +283,9 @@ export interface SectionsMap {
   "about-content": Section<AboutComponent>;
   "contact-form": Section<ContactComponent>;
   "all-projects": Section<ProjectsComponent>;
+  stats: Section<StatsComponent>;
+  timeline: Section<TimelineComponent>;
+  achievements: Section<AchievementsComponent>;
 }
 
 // ---------------------------------------------
