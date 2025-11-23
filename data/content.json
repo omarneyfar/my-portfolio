@@ -40,17 +40,13 @@
         "url": "https://linkedin.com/in/omarneyfar",
         "label": "LinkedIn"
       },
-      "twitter": {
-        "url": "https://twitter.com/omarneyfar",
-        "label": "Twitter"
-      },
       "instagram": {
         "url": "https://instagram.com/omarneyfar",
         "label": "Instagram"
       },
-      "dribbble": {
-        "url": "https://dribbble.com/omarneyfar",
-        "label": "Dribbble"
+      "email": {
+        "url": "mailto:omarneyfar@gmail.com",
+        "label": "Email"
       }
     },
     "resumeUrl": "/resume.pdf"
@@ -88,10 +84,6 @@
         {
           "id": "projects",
           "type": "ProjectsSection"
-        },
-        {
-          "id": "achievements",
-          "type": "AchievementsSection"
         },
         {
           "id": "contact-form",
@@ -142,10 +134,6 @@
         {
           "id": "skills",
           "type": "SkillsSection"
-        },
-        {
-          "id": "achievements",
-          "type": "AchievementsSection"
         },
         {
           "id": "contact-form",
@@ -481,7 +469,7 @@
               "fr": "Voir tous les projets",
               "en": "View all projects"
             },
-            "viewAllLink": "/projets",
+            "viewAllLink": "/projects",
             "cta": {
               "title": {
                 "en": "Have a project in mind?",
@@ -881,6 +869,472 @@
                   "en": "Delivered projects for clients across Europe and North Africa."
                 },
                 "year": "2023"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "contact-form": {
+      "type": "ContactSection",
+      "components": [
+        {
+          "id": "contactForm",
+          "type": "ContactForm",
+          "variables": {
+            "title": {
+              "fr": "Travaillons Ensemble",
+              "en": "Let's Work Together"
+            },
+            "subtitle": {
+              "fr": "Prêt à donner vie à votre projet",
+              "en": "Ready to bring your project to life"
+            },
+            "description": {
+              "fr": "Que vous ayez un projet web ambitieux, une application mobile innovante ou besoin d'expertise technique, je suis là pour vous aider. Discutons de vos idées et transformons-les en réalité.",
+              "en": "Whether you have an ambitious web project, an innovative mobile app, or need technical expertise, I'm here to help. Let's discuss your ideas and turn them into reality."
+            },
+            "formFields": [
+              {
+                "name": "name",
+                "type": "text",
+                "label": {
+                  "fr": "Nom complet",
+                  "en": "Full Name"
+                },
+                "placeholder": {
+                  "fr": "Votre nom",
+                  "en": "Your name"
+                },
+                "required": true
+              },
+              {
+                "name": "email",
+                "type": "email",
+                "label": {
+                  "fr": "Adresse email",
+                  "en": "Email Address"
+                },
+                "placeholder": {
+                  "fr": "votre.email@exemple.com",
+                  "en": "your.email@example.com"
+                },
+                "required": true
+              },
+              {
+                "name": "company",
+                "type": "text",
+                "label": {
+                  "fr": "Entreprise",
+                  "en": "Company"
+                },
+                "placeholder": {
+                  "fr": "Nom de votre entreprise (optionnel)",
+                  "en": "Your company name (optional)"
+                },
+                "required": false
+              },
+              {
+                "name": "subject",
+                "type": "text",
+                "label": {
+                  "fr": "Sujet",
+                  "en": "Subject"
+                },
+                "placeholder": {
+                  "fr": "De quoi souhaitez-vous discuter ?",
+                  "en": "What would you like to discuss?"
+                },
+                "required": true
+              },
+              {
+                "name": "message",
+                "type": "textarea",
+                "label": {
+                  "fr": "Message",
+                  "en": "Message"
+                },
+                "placeholder": {
+                  "fr": "Parlez-moi de votre projet...",
+                  "en": "Tell me about your project..."
+                },
+                "rows": 6,
+                "required": true
+              }
+            ],
+            "submitButton": {
+              "fr": "Envoyer le message",
+              "en": "Send Message"
+            },
+            "successMessage": {
+              "fr": "✓ Message envoyé avec succès ! Je vous répondrai dans les 24 heures.",
+              "en": "✓ Message sent successfully! I'll get back to you within 24 hours."
+            },
+            "errorMessage": {
+              "fr": "✗ Une erreur s'est produite. Veuillez réessayer ou me contacter directement par email.",
+              "en": "✗ An error occurred. Please try again or contact me directly via email."
+            },
+            "contactInfo": {
+              "email": "omarneyfar@gmail.com",
+              "phone": "+216 44 78 50 90",
+              "location": {
+                "fr": "Sfax, Tunisie",
+                "en": "Sfax, Tunisia"
+              },
+              "availability": {
+                "fr": "Disponible pour des projets freelance",
+                "en": "Available for freelance projects"
+              },
+              "responseTime": {
+                "fr": "Réponse sous 24h",
+                "en": "Response within 24h"
+              }
+            },
+            "socialLinks": [
+              {
+                "platform": "GitHub",
+                "url": "https://github.com/omarneyfar",
+                "icon": "GithubIcon"
+              },
+              {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com/in/omarneyfar",
+                "icon": "LinkedinIcon"
+              },
+              {
+                "platform": "Instagram",
+                "url": "https://instagram.com/omarneyfar",
+                "icon": "InstagramIcon"
+              },
+              {
+                "platform": "Email",
+                "url": "mailto:omarneyfar@gmail.com",
+                "icon": "MailIcon"
+              }
+            ],
+            "downloadCV": {
+              "text": {
+                "fr": "Télécharger mon CV",
+                "en": "Download Resume"
+              },
+              "url": "/resume.pdf",
+              "icon": "Download"
+            }
+          }
+        }
+      ]
+    },
+    "all-projects": {
+      "type": "ProjectsSection",
+      "components": [
+        {
+          "id": "allProjectsGrid",
+          "type": "ProjectGrid",
+          "variables": {
+            "title": {
+              "fr": "Tous les projets",
+              "en": "All Projects"
+            },
+            "filterOptions": [
+              {
+                "id": "all",
+                "label": {
+                  "fr": "Tous",
+                  "en": "All"
+                }
+              },
+              {
+                "id": "freelance",
+                "label": {
+                  "fr": "Freelance",
+                  "en": "Freelance"
+                }
+              },
+              {
+                "id": "tekab",
+                "label": {
+                  "fr": "Tekab.Dev",
+                  "en": "Tekab.Dev"
+                }
+              },
+              {
+                "id": "personal",
+                "label": {
+                  "fr": "Personnel",
+                  "en": "Personal"
+                }
+              }
+            ],
+            "sortOptions": [
+              {
+                "id": "newest",
+                "label": {
+                  "fr": "Plus récent",
+                  "en": "Newest"
+                }
+              },
+              {
+                "id": "oldest",
+                "label": {
+                  "fr": "Plus ancien",
+                  "en": "Oldest"
+                }
+              }
+            ],
+            "projects": [
+              {
+                "id": "artello",
+                "title": "Artello",
+                "description": {
+                  "fr": "Marketplace créatif pour posters personnalisés avec éditeur en temps réel.",
+                  "en": "Creative marketplace for customizable posters with a real‑time design editor."
+                },
+                "longDescription": {
+                  "fr": "Marketplace créatif permettant aux utilisateurs de concevoir et commander des posters personnalisés. Intègre un éditeur en temps réel basé sur Fabric.js, une gestion de base de données avec Prisma et Cloudflare D1, et une authentification sécurisée via NextAuth.",
+                  "en": "Creative marketplace allowing users to design and order customizable posters. Features a real-time editor based on Fabric.js, database management with Prisma and Cloudflare D1, and secure authentication via NextAuth."
+                },
+                "technologies": [
+                  "Next.js",
+                  "Hono.js",
+                  "Fabric.js",
+                  "Tailwind CSS",
+                  "Prisma",
+                  "Cloudflare D1",
+                  "NextAuth",
+                  "Supabase"
+                ],
+                "category": "freelance",
+                "featured": true,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://artello.example.com",
+                "imageUrl": "https://placehold.co/800x600/0ea5e9/ffffff?text=Artello",
+                "year": 2025,
+                "client": "Freelance"
+              },
+              {
+                "id": "glovo-clone",
+                "title": "Glovo‑Clone",
+                "description": {
+                  "fr": "Backend SaaS de livraison de nourriture, authentification JWT, suivi en temps réel via WebSocket.",
+                  "en": "SaaS backend for food delivery, JWT authentication, real‑time tracking via WebSocket."
+                },
+                "longDescription": {
+                  "fr": "Développement complet du backend pour une application de livraison de type Glovo. Utilise Nest.js pour l'API, PostgreSQL avec Prisma pour les données, et WebSockets pour le suivi des livraisons en temps réel. Conteneurisé avec Docker.",
+                  "en": "Complete backend development for a Glovo-like delivery application. Uses Nest.js for the API, PostgreSQL with Prisma for data, and WebSockets for real-time delivery tracking. Containerized with Docker."
+                },
+                "technologies": [
+                  "Nest.js",
+                  "React Native",
+                  "PostgreSQL",
+                  "Prisma",
+                  "WebSocket",
+                  "Docker"
+                ],
+                "category": "freelance",
+                "featured": true,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://glovo-clone.example.com",
+                "imageUrl": "https://placehold.co/800x600/10b981/ffffff?text=Glovo+Clone",
+                "year": 2025,
+                "client": "Freelance"
+              },
+              {
+                "id": "lens-life-coach",
+                "title": "Lens Life Coach",
+                "description": {
+                  "fr": "Application mobile pour rappels de lentilles et recherche d'opticiens.",
+                  "en": "Mobile app for lens reminders and optician store discovery."
+                },
+                "longDescription": {
+                  "fr": "Application mobile développée avec Flutter pour aider les utilisateurs à gérer le port de leurs lentilles de contact. Inclut des rappels automatisés et une fonctionnalité de géolocalisation pour trouver des opticiens à proximité.",
+                  "en": "Mobile application developed with Flutter to help users manage their contact lens wear. Includes automated reminders and geolocation functionality to find nearby opticians."
+                },
+                "technologies": [
+                  "Flutter",
+                  "Dart",
+                  "Firebase"
+                ],
+                "category": "freelance",
+                "featured": false,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://lenslifecoach.example.com",
+                "imageUrl": "https://placehold.co/800x600/f59e0b/ffffff?text=Lens+Life+Coach",
+                "year": 2025,
+                "client": "Freelance"
+              },
+              {
+                "id": "autoservice",
+                "title": "AutoService",
+                "description": {
+                  "fr": "Gestion des interventions automobiles, interface Vue.js + Nest.js.",
+                  "en": "Auto‑service management system with Vue.js frontend and Nest.js backend."
+                },
+                "longDescription": {
+                  "fr": "Système de gestion complet pour les centres de service automobile. Permet le suivi des réparations, la gestion des stocks de pièces et la facturation client. Interface utilisateur réactive avec Vue.js et backend robuste Nest.js.",
+                  "en": "Comprehensive management system for auto service centers. Enables tracking of repairs, parts inventory management, and client invoicing. Responsive UI with Vue.js and robust Nest.js backend."
+                },
+                "technologies": [
+                  "Vue.js",
+                  "Nest.js",
+                  "TypeScript"
+                ],
+                "category": "freelance",
+                "featured": false,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://autoservice.example.com",
+                "imageUrl": "https://placehold.co/800x600/ef4444/ffffff?text=AutoService",
+                "year": 2025,
+                "client": "Freelance"
+              },
+              {
+                "id": "hive-bees",
+                "title": "Hive and Bees",
+                "description": {
+                  "fr": "CRM SaaS pour délégués pharmaceutiques, suivi des présentations.",
+                  "en": "SaaS CRM for pharmaceutical delegates, managing product presentations."
+                },
+                "longDescription": {
+                  "fr": "Plateforme CRM SaaS conçue pour les délégués pharmaceutiques. Facilite la planification des visites, le suivi des présentations de produits et la gestion des relations clients. Déployé sur Cloudflare avec CI/CD GitLab.",
+                  "en": "SaaS CRM platform designed for pharmaceutical delegates. Facilitates visit planning, product presentation tracking, and customer relationship management. Deployed on Cloudflare with GitLab CI/CD."
+                },
+                "technologies": [
+                  "Vue.js",
+                  "Nest.js",
+                  "Prisma",
+                  "GitLab CI",
+                  "Cloudflare"
+                ],
+                "category": "tekab",
+                "featured": true,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://hive-bees.example.com",
+                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Hive+and+Bees",
+                "year": 2024,
+                "client": "Tekab.Dev"
+              },
+              {
+                "id": "swapii",
+                "title": "Swapii",
+                "description": {
+                  "fr": "Plateforme d'échange de vêtements enfants éco‑responsable.",
+                  "en": "Eco‑responsible children's clothing exchange platform."
+                },
+                "longDescription": {
+                  "fr": "Plateforme web favorisant l'économie circulaire par l'échange de vêtements pour enfants. Utilise Hono.js pour des performances optimales en bordure (Edge) sur Cloudflare.",
+                  "en": "Web platform promoting circular economy through children's clothing exchange. Uses Hono.js for optimal edge performance on Cloudflare."
+                },
+                "technologies": [
+                  "Vue.js",
+                  "Hono.js",
+                  "Cloudflare",
+                  "GitLab CI"
+                ],
+                "category": "tekab",
+                "featured": false,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://swapii.example.com",
+                "imageUrl": "https://placehold.co/800x600/ec4899/ffffff?text=Swapii",
+                "year": 2024,
+                "client": "Tekab.Dev"
+              },
+              {
+                "id": "othentis",
+                "title": "Othentis",
+                "description": {
+                  "fr": "Plateforme de conformité pour le secteur de la construction.",
+                  "en": "Compliance management platform for the construction industry."
+                },
+                "longDescription": {
+                  "fr": "Solution de gestion de la conformité réglementaire pour les projets de construction. Interface React complexe avec gestion d'état Zustand et requêtes optimisées via React Query.",
+                  "en": "Regulatory compliance management solution for construction projects. Complex React interface with Zustand state management and optimized queries via React Query."
+                },
+                "technologies": [
+                  "React.js",
+                  "Zustand",
+                  "React Query"
+                ],
+                "category": "tekab",
+                "featured": false,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://othentis.example.com",
+                "imageUrl": "https://placehold.co/800x600/6366f1/ffffff?text=Othentis",
+                "year": 2024,
+                "client": "Tekab.Dev"
+              },
+              {
+                "id": "urjob",
+                "title": "UrJob",
+                "description": {
+                  "fr": "Plateforme de recrutement IA avec analyse de CV via ChatGPT.",
+                  "en": "AI‑driven recruitment platform with CV analysis via ChatGPT."
+                },
+                "longDescription": {
+                  "fr": "Plateforme de recrutement innovante intégrant l'API ChatGPT pour analyser et classer automatiquement les CVs des candidats. Simplifie le processus d'embauche grâce à l'IA.",
+                  "en": "Innovative recruitment platform integrating ChatGPT API to automatically analyze and rank candidate CVs. Simplifies the hiring process using AI."
+                },
+                "technologies": [
+                  "Vue.js",
+                  "Nest.js",
+                  "Prisma",
+                  "ChatGPT API",
+                  "Cloudflare D1",
+                  "Pinia"
+                ],
+                "category": "tekab",
+                "featured": true,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://urjob.example.com",
+                "imageUrl": "https://placehold.co/800x600/14b8a6/ffffff?text=UrJob",
+                "year": 2024,
+                "client": "Tekab.Dev"
+              },
+              {
+                "id": "ccme-verlag",
+                "title": "CME‑Verlag",
+                "description": {
+                  "fr": "E‑learning pour professionnels de santé, backend Strapi.",
+                  "en": "E‑learning platform for healthcare professionals, Strapi backend."
+                },
+                "longDescription": {
+                  "fr": "Plateforme de formation continue (E-learning) destinée aux professionnels de la santé. Gestion de contenu flexible via Strapi et frontend performant en Next.js.",
+                  "en": "Continuing education (E-learning) platform for healthcare professionals. Flexible content management via Strapi and high-performance frontend in Next.js."
+                },
+                "technologies": [
+                  "Next.js",
+                  "React.js",
+                  "Strapi"
+                ],
+                "category": "personal",
+                "featured": false,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://ccme-verlag.example.com",
+                "imageUrl": "https://placehold.co/800x600/3b82f6/ffffff?text=CME+Verlag",
+                "year": 2023,
+                "client": "Sofflex"
+              },
+              {
+                "id": "pack-tools",
+                "title": "Pack Tools",
+                "description": {
+                  "fr": "Éditeur web de design en temps réel avec Fabric.js.",
+                  "en": "Real‑time web design editor using Fabric.js."
+                },
+                "longDescription": {
+                  "fr": "Outil de conception web interactif permettant la création et la modification de designs d'emballage en temps réel. Utilise Fabric.js pour la manipulation de canevas HTML5.",
+                  "en": "Interactive web design tool allowing real-time creation and modification of packaging designs. Uses Fabric.js for HTML5 canvas manipulation."
+                },
+                "technologies": [
+                  "Next.js",
+                  "Fabric.js",
+                  "NextAuth"
+                ],
+                "category": "personal",
+                "featured": false,
+                "githubUrl": "https://github.com/omarneyfar",
+                "liveUrl": "https://pack-tools.example.com",
+                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Pack+Tools",
+                "year": 2023,
+                "client": "Sofflex"
               }
             ]
           }

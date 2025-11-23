@@ -59,7 +59,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
                         <span
-                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${categoryColor}`}
+                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border border-white text-white`}
                         >
                             {project.category}
                         </span>
@@ -67,7 +67,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                     {/* Year Badge */}
                     <div className="absolute top-4 right-4">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-bg-surface/80 text-text-muted border border-border-muted backdrop-blur-sm">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-bg-surface/80 text-white border border-white backdrop-blur-sm">
                             {project.year}
                         </span>
                     </div>

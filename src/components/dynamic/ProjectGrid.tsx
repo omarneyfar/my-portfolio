@@ -43,10 +43,6 @@ export default function ProjectGrid(props: ProjectsVariables) {
           <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
             {t(props.title)}
           </h2>
-          {/* <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-            A selection of recent work showcasing full-stack development, modern
-            technologies, and innovative solutions.
-          </p> */}
           <div className="w-12 h-1 bg-accent mx-auto mt-6 rounded" />
         </motion.div>
 
@@ -91,14 +87,25 @@ export default function ProjectGrid(props: ProjectsVariables) {
           ))}
         </div>
 
-        {props.viewAllLink && !showAll && filteredProjects.length > 3 && (
+        {props.viewAllLink && !showAll && (
+          <div className="mt-12 text-center">
+            <Link
+              href={props.viewAllLink}
+              className="inline-flex items-center gap-2 px-8 py-3 bg-accent hover:bg-accent/90 text-text-inverse rounded-full font-semibold transition-all hover:scale-105 shadow-lg shadow-accent/25"
+            >
+              {props.viewAllText ? t(props.viewAllText) : "View All Projects"}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        )}
+
+        {!props.viewAllLink && !showAll && filteredProjects.length > 6 && (
           <div className="mt-12 text-center">
             <button
               onClick={() => setShowAll(true)}
-              className="px-8 py-3 bg-accent hover:bg-accent/90 text-text-inverse rounded-lg font-semibold transition-colors"
-              aria-label="Show all projects"
+              className="px-8 py-3 bg-bg-surface border border-accent/20 hover:border-accent/50 text-text-primary rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-accent/10"
             >
-              {props.viewAllText ? t(props.viewAllText) : "Show More"}
+              Show More
             </button>
           </div>
         )}
