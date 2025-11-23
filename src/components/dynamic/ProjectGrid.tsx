@@ -24,10 +24,9 @@ export default function ProjectGrid(props: ProjectsVariables) {
       return 0;
     });
 
-  const displayedProjects =
-    showAll || !props.viewAllLink
-      ? filteredProjects
-      : filteredProjects.slice(0, 3);
+  const displayedProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 6);
 
   return (
     <section id="projects" className="py-20 ">
@@ -54,8 +53,8 @@ export default function ProjectGrid(props: ProjectsVariables) {
                   key={option.id}
                   onClick={() => setFilter(option.id)}
                   className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors text-sm sm:text-base ${filter === option.id
-                      ? "bg-accent text-text-inverse"
-                      : "bg-bg-surface border border-border-muted text-text-secondary hover:bg-bg-surface/80 active:scale-95"
+                    ? "bg-accent text-text-inverse"
+                    : "bg-bg-surface border border-border-muted text-text-secondary hover:bg-bg-surface/80 active:scale-95"
                     }`}
                   aria-label={`Filter by ${t(option.label)}`}
                 >

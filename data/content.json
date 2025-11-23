@@ -489,7 +489,7 @@
             "projects": [
               {
                 "id": "artello",
-                "title": "Artello",
+                "title": "Creative Marketplace Platform",
                 "description": {
                   "fr": "Marketplace créatif pour posters personnalisés avec éditeur en temps réel.",
                   "en": "Creative marketplace for customizable posters with a real‑time design editor."
@@ -512,13 +512,13 @@
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "#",
-                "imageUrl": "https://placehold.co/800x600/0ea5e9/ffffff?text=Artello",
+                "imageUrl": "https://placehold.co/800x600/0ea5e9/ffffff?text=Creative+Marketplace",
                 "year": 2025,
                 "client": "Freelance"
               },
               {
                 "id": "glovo-clone",
-                "title": "Glovo‑Clone",
+                "title": "Food Delivery Platform",
                 "description": {
                   "fr": "Backend SaaS de livraison de nourriture, authentification JWT, suivi en temps réel via WebSocket.",
                   "en": "SaaS backend for food delivery, JWT authentication, real‑time tracking via WebSocket."
@@ -539,13 +539,13 @@
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "#",
-                "imageUrl": "https://placehold.co/800x600/10b981/ffffff?text=Glovo+Clone",
+                "imageUrl": "https://placehold.co/800x600/10b981/ffffff?text=Food+Delivery",
                 "year": 2025,
                 "client": "Freelance"
               },
               {
                 "id": "lens-life-coach",
-                "title": "Lens Life Coach",
+                "title": "Healthcare Mobile App",
                 "description": {
                   "fr": "Application mobile pour rappels de lentilles et recherche d'opticiens.",
                   "en": "Mobile app for lens reminders and optician store discovery."
@@ -563,13 +563,13 @@
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "#",
-                "imageUrl": "https://placehold.co/800x600/f59e0b/ffffff?text=Lens+Life+Coach",
+                "imageUrl": "https://placehold.co/800x600/f59e0b/ffffff?text=Healthcare+App",
                 "year": 2025,
                 "client": "Freelance"
               },
               {
                 "id": "autoservice",
-                "title": "AutoService",
+                "title": "Auto Service Management",
                 "description": {
                   "fr": "Gestion des interventions automobiles, interface Vue.js + Nest.js.",
                   "en": "Auto‑service management system with Vue.js frontend and Nest.js backend."
@@ -586,14 +586,14 @@
                 "category": "freelance",
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://autoservice.example.com",
-                "imageUrl": "https://placehold.co/800x600/ef4444/ffffff?text=AutoService",
+                "liveUrl": "#",
+                "imageUrl": "https://placehold.co/800x600/ef4444/ffffff?text=Auto+Service",
                 "year": 2025,
                 "client": "Freelance"
               },
               {
                 "id": "hive-bees",
-                "title": "Hive and Bees",
+                "title": "Healthcare CRM Platform",
                 "description": {
                   "fr": "CRM SaaS pour délégués pharmaceutiques, suivi des présentations.",
                   "en": "SaaS CRM for pharmaceutical delegates, managing product presentations."
@@ -612,14 +612,14 @@
                 "category": "tekab",
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://hive-bees.example.com",
-                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Hive+and+Bees",
+                "liveUrl": "#",
+                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Healthcare+CRM",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "swapii",
-                "title": "Swapii",
+                "title": "Clothing Exchange Platform",
                 "description": {
                   "fr": "Plateforme d'échange de vêtements enfants éco‑responsable.",
                   "en": "Eco‑responsible children's clothing exchange platform."
@@ -637,14 +637,14 @@
                 "category": "tekab",
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://swapii.example.com",
-                "imageUrl": "https://placehold.co/800x600/ec4899/ffffff?text=Swapii",
+                "liveUrl": "#",
+                "imageUrl": "https://placehold.co/800x600/ec4899/ffffff?text=Clothing+Exchange",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "othentis",
-                "title": "Othentis",
+                "title": "Construction Compliance Platform",
                 "description": {
                   "fr": "Plateforme de conformité pour le secteur de la construction.",
                   "en": "Compliance management platform for the construction industry."
@@ -661,14 +661,14 @@
                 "category": "tekab",
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://othentis.example.com",
-                "imageUrl": "https://placehold.co/800x600/6366f1/ffffff?text=Othentis",
+                "liveUrl": "#",
+                "imageUrl": "https://placehold.co/800x600/6366f1/ffffff?text=Construction+Platform",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "urjob",
-                "title": "UrJob",
+                "title": "AI Recruitment Platform",
                 "description": {
                   "fr": "Plateforme de recrutement IA avec analyse de CV via ChatGPT.",
                   "en": "AI‑driven recruitment platform with CV analysis via ChatGPT."
@@ -688,14 +688,14 @@
                 "category": "tekab",
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://urjob.example.com",
-                "imageUrl": "https://placehold.co/800x600/14b8a6/ffffff?text=UrJob",
+                "liveUrl": "#",
+                "imageUrl": "https://placehold.co/800x600/14b8a6/ffffff?text=AI+Recruitment",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "ccme-verlag",
-                "title": "CME‑Verlag",
+                "title": "Healthcare E-Learning Platform",
                 "description": {
                   "fr": "E‑learning pour professionnels de santé, backend Strapi.",
                   "en": "E‑learning platform for healthcare professionals, Strapi backend."
@@ -712,14 +712,14 @@
                 "category": "personal",
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://ccme-verlag.example.com",
-                "imageUrl": "https://placehold.co/800x600/3b82f6/ffffff?text=CME+Verlag",
+                "liveUrl": "#",
+                "imageUrl": "https://placehold.co/800x600/3b82f6/ffffff?text=E-Learning",
                 "year": 2023,
                 "client": "Sofflex"
               },
               {
                 "id": "pack-tools",
-                "title": "Pack Tools",
+                "title": "Design Editor Tool",
                 "description": {
                   "fr": "Éditeur web de design en temps réel avec Fabric.js.",
                   "en": "Real‑time web design editor using Fabric.js."
@@ -736,8 +736,8 @@
                 "category": "personal",
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
-                "liveUrl": "https://pack-tools.example.com",
-                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Pack+Tools",
+                "liveUrl": "#",
+                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Design+Editor",
                 "year": 2023,
                 "client": "Sofflex"
               }
@@ -1085,7 +1085,7 @@
             "projects": [
               {
                 "id": "artello",
-                "title": "Artello",
+                "title": "Creative Marketplace Platform",
                 "description": {
                   "fr": "Marketplace créatif pour posters personnalisés avec éditeur en temps réel.",
                   "en": "Creative marketplace for customizable posters with a real‑time design editor."
@@ -1108,13 +1108,13 @@
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://artello.example.com",
-                "imageUrl": "https://placehold.co/800x600/0ea5e9/ffffff?text=Artello",
+                "imageUrl": "https://placehold.co/800x600/0ea5e9/ffffff?text=Creative+Marketplace+Platform",
                 "year": 2025,
                 "client": "Freelance"
               },
               {
                 "id": "glovo-clone",
-                "title": "Glovo‑Clone",
+                "title": "Food Delivery Platform",
                 "description": {
                   "fr": "Backend SaaS de livraison de nourriture, authentification JWT, suivi en temps réel via WebSocket.",
                   "en": "SaaS backend for food delivery, JWT authentication, real‑time tracking via WebSocket."
@@ -1135,13 +1135,13 @@
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://glovo-clone.example.com",
-                "imageUrl": "https://placehold.co/800x600/10b981/ffffff?text=Glovo+Clone",
+                "imageUrl": "https://placehold.co/800x600/10b981/ffffff?text=Food+Delivery+Platform",
                 "year": 2025,
                 "client": "Freelance"
               },
               {
                 "id": "lens-life-coach",
-                "title": "Lens Life Coach",
+                "title": "Healthcare Mobile App",
                 "description": {
                   "fr": "Application mobile pour rappels de lentilles et recherche d'opticiens.",
                   "en": "Mobile app for lens reminders and optician store discovery."
@@ -1165,7 +1165,7 @@
               },
               {
                 "id": "autoservice",
-                "title": "AutoService",
+                "title": "Auto Service Management",
                 "description": {
                   "fr": "Gestion des interventions automobiles, interface Vue.js + Nest.js.",
                   "en": "Auto‑service management system with Vue.js frontend and Nest.js backend."
@@ -1183,13 +1183,13 @@
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://autoservice.example.com",
-                "imageUrl": "https://placehold.co/800x600/ef4444/ffffff?text=AutoService",
+                "imageUrl": "https://placehold.co/800x600/ef4444/ffffff?text=Auto+Service+Management",
                 "year": 2025,
                 "client": "Freelance"
               },
               {
                 "id": "hive-bees",
-                "title": "Hive and Bees",
+                "title": "Healthcare CRM Platform",
                 "description": {
                   "fr": "CRM SaaS pour délégués pharmaceutiques, suivi des présentations.",
                   "en": "SaaS CRM for pharmaceutical delegates, managing product presentations."
@@ -1209,13 +1209,13 @@
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://hive-bees.example.com",
-                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Hive+and+Bees",
+                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Healthcare+CRM+Platform",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "swapii",
-                "title": "Swapii",
+                "title": "Clothing Exchange Platform",
                 "description": {
                   "fr": "Plateforme d'échange de vêtements enfants éco‑responsable.",
                   "en": "Eco‑responsible children's clothing exchange platform."
@@ -1234,13 +1234,13 @@
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://swapii.example.com",
-                "imageUrl": "https://placehold.co/800x600/ec4899/ffffff?text=Swapii",
+                "imageUrl": "https://placehold.co/800x600/ec4899/ffffff?text=Clothing+Exchange+Platform",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "othentis",
-                "title": "Othentis",
+                "title": "Construction Compliance Platform",
                 "description": {
                   "fr": "Plateforme de conformité pour le secteur de la construction.",
                   "en": "Compliance management platform for the construction industry."
@@ -1258,13 +1258,13 @@
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://othentis.example.com",
-                "imageUrl": "https://placehold.co/800x600/6366f1/ffffff?text=Othentis",
+                "imageUrl": "https://placehold.co/800x600/6366f1/ffffff?text=Construction+Compliance+Platform",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "urjob",
-                "title": "UrJob",
+                "title": "AI Recruitment Platform",
                 "description": {
                   "fr": "Plateforme de recrutement IA avec analyse de CV via ChatGPT.",
                   "en": "AI‑driven recruitment platform with CV analysis via ChatGPT."
@@ -1285,13 +1285,13 @@
                 "featured": true,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://urjob.example.com",
-                "imageUrl": "https://placehold.co/800x600/14b8a6/ffffff?text=UrJob",
+                "imageUrl": "https://placehold.co/800x600/14b8a6/ffffff?text=AI+Recruitment+Platform",
                 "year": 2024,
                 "client": "Tekab.Dev"
               },
               {
                 "id": "ccme-verlag",
-                "title": "CME‑Verlag",
+                "title": "Healthcare E-Learning Platform",
                 "description": {
                   "fr": "E‑learning pour professionnels de santé, backend Strapi.",
                   "en": "E‑learning platform for healthcare professionals, Strapi backend."
@@ -1309,13 +1309,13 @@
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://ccme-verlag.example.com",
-                "imageUrl": "https://placehold.co/800x600/3b82f6/ffffff?text=CME+Verlag",
+                "imageUrl": "https://placehold.co/800x600/3b82f6/ffffff?text=Healthcare+E-Learning+Platform",
                 "year": 2023,
                 "client": "Sofflex"
               },
               {
-                "id": "pack-tools",
-                "title": "Pack Tools",
+                "id": "Design Editor Tool",
+                "title": "Design Editor Tool",
                 "description": {
                   "fr": "Éditeur web de design en temps réel avec Fabric.js.",
                   "en": "Real‑time web design editor using Fabric.js."
@@ -1333,7 +1333,7 @@
                 "featured": false,
                 "githubUrl": "https://github.com/omarneyfar",
                 "liveUrl": "https://pack-tools.example.com",
-                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Pack+Tools",
+                "imageUrl": "https://placehold.co/800x600/8b5cf6/ffffff?text=Design+Editor+Tool",
                 "year": 2023,
                 "client": "Sofflex"
               }
