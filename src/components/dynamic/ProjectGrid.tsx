@@ -79,13 +79,13 @@ export default function ProjectGrid(props: ProjectsVariables) {
             className="group bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 hover:border-blue-500 transition-all"
           >
             <div className="relative h-48 overflow-hidden">
-              <Image
+              {/* <Image
                 src={project.imageUrl}
                 alt={project.title}
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              /> */}
             </div>
 
             <div className="p-6">

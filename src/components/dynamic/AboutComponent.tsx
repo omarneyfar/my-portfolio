@@ -42,13 +42,13 @@ export default function AboutComponent(props: AboutVariables) {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="relative h-96 lg:h-[500px]"
       >
-        <Image
+        {/* <Image
           src={props.image}
           alt={t(props.title)}
           fill
           className="object-cover rounded-2xl"
           sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        /> */}
       </motion.div>
     </div>
   );

@@ -1,5 +1,7 @@
 // content.types.ts
 
+import { LucideIcon } from "lucide-react";
+
 // ---------------------------------------------
 // GLOBAL LANGUAGE TYPES
 // ---------------------------------------------
@@ -81,6 +83,7 @@ export interface CTAButton {
 export interface HeroVariables {
   headline: MultiLangText;
   subtext: MultiLangText;
+  eyeBrowText: MultiLangText;
   description: MultiLangText;
   ctaPrimary: CTAButton;
   ctaSecondary: CTAButton;
@@ -90,6 +93,20 @@ export interface HeroVariables {
 export interface Skill {
   name: string;
   level: number;
+  icon: string;
+}
+
+export interface Expertise {
+  title: MultiLangText;
+  items: {
+    name: string;
+    level: number;
+    category: string;
+  }[];
+}
+export interface AddtionalExpertises {
+  title: MultiLangText;
+  items: MultiLangText[];
 }
 
 export interface SkillCategory {
@@ -99,7 +116,10 @@ export interface SkillCategory {
 
 export interface SkillsVariables {
   title: MultiLangText;
+  description: MultiLangText;
   categories: SkillCategory[];
+  expertise: Expertise;
+  additionalExpertise: AddtionalExpertises;
 }
 
 export interface ProjectItem {

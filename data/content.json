@@ -75,25 +75,19 @@
       "id": "projects",
       "slug": { "fr": "/projets", "en": "/projects" },
       "title": { "fr": "Projets", "en": "Projects" },
-      "sections": [
-        { "id": "all-projects", "type": "ProjectsSection" }
-      ]
+      "sections": [{ "id": "all-projects", "type": "ProjectsSection" }]
     },
     {
       "id": "about",
       "slug": { "fr": "/a-propos", "en": "/about" },
       "title": { "fr": "À propos", "en": "About" },
-      "sections": [
-        { "id": "about-content", "type": "AboutSection" }
-      ]
+      "sections": [{ "id": "about-content", "type": "AboutSection" }]
     },
     {
       "id": "contact",
       "slug": { "fr": "/contact", "en": "/contact" },
       "title": { "fr": "Contact", "en": "Contact" },
-      "sections": [
-        { "id": "contact-form", "type": "ContactSection" }
-      ]
+      "sections": [{ "id": "contact-form", "type": "ContactSection" }]
     }
   ],
 
@@ -105,14 +99,27 @@
           "id": "heroMain",
           "type": "HeroComponent",
           "variables": {
-            "headline": { "fr": "Salut, je suis Omar", "en": "Hi, I'm Omar" },
-            "subtext": { "fr": "Développeur Full Stack & Créateur d'expériences digitales", "en": "Full Stack Developer & Digital Experience Creator" },
+            "headline": { "fr": "Omar Naifar", "en": "Omar Naifar" },
+            "subtext": {
+              "fr": "Ingénieur Full Stack",
+              "en": "Full Stack Engineer"
+            },
             "description": {
               "fr": "Je conçois et développe des applications web modernes, rapides et magnifiques avec React, Next.js et les meilleures pratiques 2025.",
               "en": "I design and build modern, fast, and beautiful web applications using React, Next.js, and 2025 best practices."
             },
-            "ctaPrimary": { "text": { "fr": "Voir mes projets", "en": "View projects" }, "link": "/projets" },
-            "ctaSecondary": { "text": { "fr": "Me contacter", "en": "Contact me" }, "link": "/contact" },
+            "eyeBrowText": {
+              "fr": "Ingénieur Full Stack  • Sfax, Tunisie",
+              "en": "Full-Stack Engineer • Sfax, Tunisia"
+            },
+            "ctaPrimary": {
+              "text": { "fr": "Me contacter", "en": "Contact me" },
+              "link": "/contact"
+            },
+            "ctaSecondary": {
+              "text": { "fr": "Voir mes projets", "en": "View projects" },
+              "link": "/projects"
+            },
             "image": "/images/profile.jpg"
           }
         }
@@ -126,68 +133,128 @@
           "id": "skillsGrid",
           "type": "SkillsGrid",
           "variables": {
-            "title": { "fr": "Compétences Techniques", "en": "Technical Skills" },
+            "title": {
+              "fr": "Compétences & Expertise",
+              "en": "Skills & Expertise"
+            },
+            "description": {
+              "en": "Full-stack development capabilities spanning modern web technologies, mobile development, and AI integration.",
+              "fr": "Capacités de développement full-stack couvrant les technologies web modernes, le développement mobile et l'intégration de l'IA."
+            },
             "categories": [
               {
                 "name": "Frontend",
                 "skills": [
-                  { "name": "React", "level": 90 },
-                  { "name": "Next.js", "level": 85 },
-                  { "name": "TypeScript", "level": 88 },
-                  { "name": "Tailwind CSS", "level": 92 },
-                  { "name": "Framer Motion", "level": 80 }
+                  { "name": "React", "icon": "Cpu", "level": 90 },
+                  { "name": "Next.js", "icon": "Code", "level": 85 },
+                  { "name": "TypeScript", "icon": "Code", "level": 88 },
+                  { "name": "Tailwind CSS", "icon": "Palette", "level": 92 },
+                  { "name": "Framer Motion", "icon": "Brain", "level": 80 }
                 ]
               },
               {
                 "name": "Backend",
                 "skills": [
-                  { "name": "Node.js", "level": 85 },
-                  { "name": "Express", "level": 82 },
-                  { "name": "Prisma", "level": 78 },
-                  { "name": "PostgreSQL", "level": 75 },
-                  { "name": "REST APIs", "level": 88 }
+                  { "name": "Node.js", "icon": "Server", "level": 85 },
+                  { "name": "Express", "icon": "Server", "level": 82 },
+                  { "name": "Prisma", "icon": "Database", "level": 78 },
+                  { "name": "PostgreSQL", "icon": "Database", "level": 75 },
+                  { "name": "REST APIs", "icon": "Server", "level": 88 }
                 ]
               },
               {
                 "name": "Mobile",
                 "skills": [
-                  { "name": "React Native", "level": 75 },
-                  { "name": "Flutter", "level": 70 },
-                  { "name": "iOS Development", "level": 65 }
+                  { "name": "React Native", "icon": "Smartphone", "level": 75 },
+                  { "name": "Flutter", "icon": "Smartphone", "level": 70 },
+                  {
+                    "name": "iOS Development",
+                    "icon": "Smartphone",
+                    "level": 65
+                  }
                 ]
               },
               {
                 "name": "DevOps",
                 "skills": [
-                  { "name": "Docker", "level": 72 },
-                  { "name": "CI/CD", "level": 78 },
-                  { "name": "AWS", "level": 70 },
-                  { "name": "Vercel", "level": 85 }
+                  { "name": "Docker", "icon": "Cloud", "level": 72 },
+                  { "name": "CI/CD", "icon": "GitBranch", "level": 78 },
+                  { "name": "AWS", "icon": "Cloud", "level": 70 },
+                  { "name": "Vercel", "icon": "Cloud", "level": 85 }
                 ]
               },
               {
                 "name": "AI",
                 "skills": [
-                  { "name": "OpenAI APIs", "level": 80 },
-                  { "name": "LangChain", "level": 75 },
-                  { "name": "Python ML", "level": 70 }
+                  { "name": "OpenAI APIs", "icon": "Brain", "level": 80 },
+                  { "name": "LangChain", "icon": "Brain", "level": 75 },
+                  { "name": "Python ML", "icon": "Brain", "level": 70 }
                 ]
               }
-            ]
+            ],
+            "expertise": {
+              "title": {
+                "en": "Core Technologies",
+                "fr": "Basic technologies"
+              },
+              "items": [
+                { "name": "Next.js", "level": 85, "category": "Frontend" },
+                { "name": "React", "level": 90, "category": "Frontend" },
+                { "name": "Node.js", "level": 85, "category": "Backend" },
+                { "name": "Prisma", "level": 78, "category": "Backend" },
+                { "name": "Flutter", "level": 70, "category": "Mobile" },
+                { "name": "Firebase", "level": 82, "category": "Backend" }
+              ]
+            },
+            "additionalExpertise": {
+              "title": {
+                "fr": "Expertise supplémentaire",
+                "en": "Additional Expertise"
+              },
+              "items": [
+                {
+                  "en": "Agile Methodologies",
+                  "fr": "Méthodologies Agiles"
+                },
+                {
+                  "en": "Code Architecture",
+                  "fr": "Architecture de code"
+                },
+                {
+                  "en": "Performance Optimization",
+                  "fr": "Optimisation des performances"
+                },
+                {
+                  "en": "Security Best Practices",
+                  "fr": "Bonnes pratiques de sécurité"
+                },
+                {
+                  "en": "Testing & QA",
+                  "fr": "Tests et assurance qualité"
+                },
+                {
+                  "en": "Cloud Infrastructure",
+                  "fr": "Infrastructure cloud"
+                }
+              ]
+            }
           }
         }
       ]
     },
 
     "projects": {
-      "type": "ProjectsSection",
+      "type": "ProjectsSectionProjectsSection",
       "components": [
         {
           "id": "featuredProjects",
           "type": "ProjectGrid",
           "variables": {
             "title": { "fr": "Projets Récents", "en": "Recent Projects" },
-            "viewAllText": { "fr": "Voir tous les projets", "en": "View all projects" },
+            "viewAllText": {
+              "fr": "Voir tous les projets",
+              "en": "View all projects"
+            },
             "viewAllLink": "/projets",
             "projects": [
               {
@@ -201,7 +268,13 @@
                   "fr": "Développement d'une plateforme e-commerce complète avec React, Node.js et PostgreSQL. Fonctionnalités : authentification utilisateur, catalogue de produits, panier d'achat, gestion des commandes et intégration de paiement avec Stripe.",
                   "en": "Built a comprehensive e-commerce platform with React, Node.js, and PostgreSQL. Features include user authentication, product catalog, shopping cart, order management, and payment integration with Stripe."
                 },
-                "technologies": ["React", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+                "technologies": [
+                  "React",
+                  "Node.js",
+                  "PostgreSQL",
+                  "Stripe",
+                  "Redis"
+                ],
                 "category": "freelance",
                 "featured": true,
                 "githubUrl": "https://github.com/omar/ecommerce",
@@ -221,7 +294,13 @@
                   "fr": "Application de gestion des tâches en temps réel avec fonctionnalité de glisser-déposer, mises à jour en temps réel via WebSockets et fonctionnalités complètes de collaboration d'équipe.",
                   "en": "Developed a real-time task management application with drag-and-drop functionality, real-time updates using WebSockets, and comprehensive team collaboration features."
                 },
-                "technologies": ["Next.js", "TypeScript", "Prisma", "Socket.io", "Tailwind CSS"],
+                "technologies": [
+                  "Next.js",
+                  "TypeScript",
+                  "Prisma",
+                  "Socket.io",
+                  "Tailwind CSS"
+                ],
                 "category": "tekab",
                 "featured": true,
                 "githubUrl": "https://github.com/omar/task-app",
@@ -299,7 +378,10 @@
                 "required": true
               }
             ],
-            "submitButton": { "fr": "Envoyer le message", "en": "Send Message" },
+            "submitButton": {
+              "fr": "Envoyer le message",
+              "en": "Send Message"
+            },
             "successMessage": {
               "fr": "Merci pour votre message ! Je vous répondrai dès que possible.",
               "en": "Thank you for your message! I'll get back to you as soon as possible."
@@ -312,7 +394,7 @@
         }
       ]
     },
-    
+
     "all-projects": {
       "type": "ProjectsSection",
       "components": [
@@ -329,7 +411,13 @@
                   "fr": "Solution e-commerce complète avec gestion d'inventaire en temps réel et traitement des paiements.",
                   "en": "A full-stack e-commerce solution with real-time inventory management and payment processing."
                 },
-                "technologies": ["React", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+                "technologies": [
+                  "React",
+                  "Node.js",
+                  "PostgreSQL",
+                  "Stripe",
+                  "Redis"
+                ],
                 "category": "freelance",
                 "featured": true,
                 "githubUrl": "https://github.com/omar/ecommerce",
@@ -344,7 +432,13 @@
                   "fr": "Outil de gestion des tâches collaboratif avec mises à jour en temps réel.",
                   "en": "Collaborative task management tool with real-time updates."
                 },
-                "technologies": ["Next.js", "TypeScript", "Prisma", "Socket.io", "Tailwind CSS"],
+                "technologies": [
+                  "Next.js",
+                  "TypeScript",
+                  "Prisma",
+                  "Socket.io",
+                  "Tailwind CSS"
+                ],
                 "category": "tekab",
                 "featured": true,
                 "githubUrl": "https://github.com/omar/task-app",
@@ -359,7 +453,12 @@
                   "fr": "Site web de portfolio moderne et réactif construit avec Next.js et Tailwind CSS.",
                   "en": "Modern and responsive portfolio website built with Next.js and Tailwind CSS."
                 },
-                "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+                "technologies": [
+                  "Next.js",
+                  "TypeScript",
+                  "Tailwind CSS",
+                  "Framer Motion"
+                ],
                 "category": "personal",
                 "featured": false,
                 "githubUrl": "https://github.com/omar/portfolio",
@@ -370,15 +469,33 @@
             ],
             "filterOptions": [
               { "id": "all", "label": { "fr": "Tous", "en": "All" } },
-              { "id": "freelance", "label": { "fr": "Freelance", "en": "Freelance" } },
+              {
+                "id": "freelance",
+                "label": { "fr": "Freelance", "en": "Freelance" }
+              },
               { "id": "tekab", "label": { "fr": "Tekab", "en": "Tekab" } },
-              { "id": "personal", "label": { "fr": "Personnel", "en": "Personal" } }
+              {
+                "id": "personal",
+                "label": { "fr": "Personnel", "en": "Personal" }
+              }
             ],
             "sortOptions": [
-              { "id": "newest", "label": { "fr": "Plus récent", "en": "Newest" } },
-              { "id": "oldest", "label": { "fr": "Plus ancien", "en": "Oldest" } },
-              { "id": "name-asc", "label": { "fr": "Nom (A-Z)", "en": "Name (A-Z)" } },
-              { "id": "name-desc", "label": { "fr": "Nom (Z-A)", "en": "Name (Z-A)" } }
+              {
+                "id": "newest",
+                "label": { "fr": "Plus récent", "en": "Newest" }
+              },
+              {
+                "id": "oldest",
+                "label": { "fr": "Plus ancien", "en": "Oldest" }
+              },
+              {
+                "id": "name-asc",
+                "label": { "fr": "Nom (A-Z)", "en": "Name (A-Z)" }
+              },
+              {
+                "id": "name-desc",
+                "label": { "fr": "Nom (Z-A)", "en": "Name (Z-A)" }
+              }
             ]
           }
         }
