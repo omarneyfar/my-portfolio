@@ -78,12 +78,24 @@
           "type": "HeroSection"
         },
         {
+          "id": "stats",
+          "type": "StatsSection"
+        },
+        {
           "id": "skills",
           "type": "SkillsSection"
         },
         {
           "id": "projects",
           "type": "ProjectsSection"
+        },
+        {
+          "id": "achievements",
+          "type": "AchievementsSection"
+        },
+        {
+          "id": "contact-form",
+          "type": "ContactSection"
         }
       ]
     },
